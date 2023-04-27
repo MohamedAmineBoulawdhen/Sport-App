@@ -1,0 +1,576 @@
+{
+	"info": {
+		"_postman_id": "746b8638-caaf-4598-a065-91c50065e37b",
+		"name": "sport  app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26075998"
+	},
+	"item": [
+		{
+			"name": "athlete",
+			"item": [
+				{
+					"name": "register athlete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": {\r\n      \"first\": \"John\",\r\n      \"last\": \"Doe\"\r\n    },\r\n    \"email\": \"johndoe@example.com\",\r\n    \"password\": \"password123\",\r\n    \"gender\": \"male\",\r\n    \"dateOfBirth\": \"1998-04-16\",\r\n    \"address\": {\r\n      \"street\": \"123 Main St\",\r\n      \"city\": \"Anytown\",\r\n      \"state\": \"CA\",\r\n      \"zip\": \"12345\"\r\n    },\r\n    \"phone\": \"555-1234\",\r\n    \"weight\": 180,\r\n    \"height\": 72,\r\n    \"session\": [],\r\n    \"age\": 25,\r\n    \"level\": \"beginner\",\r\n    \"discipline\": [\"running\", \"swimming\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/registerAthlete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"registerAthlete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all athletes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/athletes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"athletes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update athlete",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"email\":\"samle@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/athletes/643c9c69b98b2648f948e3ca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"athletes",
+								"643c9c69b98b2648f948e3ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/athletes/643c8dd697d88c48d18cb829",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"athletes",
+								"643c8dd697d88c48d18cb829"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register many athlete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[   {\r\n  \"name\": {\r\n    \"first\": \"Ali\",\r\n    \"last\": \"Ben Ali\"\r\n  },\r\n  \"email\": \"ali.benali@example.com\",\r\n  \"password\": \"password123\",\r\n  \"expertise\": [\r\n    \"Fitness\",\r\n    \"Nutrition\"\r\n  ],\r\n  \"address\": {\r\n    \"street\": \"123 Main St\",\r\n    \"city\": \"Tunis\",\r\n    \"state\": \"Tunis\",\r\n    \"zip\": \"1001\"\r\n  },\r\n  \"phone\": \"+216 12345678\",\r\n  \"bio\": \"I am a certified fitness and nutrition coach with over 10 years of experience.\",\r\n  \"approved\": true\r\n},\r\n{\r\n  \"name\": {\r\n    \"first\": \"Mohamed\",\r\n    \"last\": \"Ben Mohamed\"\r\n  },\r\n  \"email\": \"mohamed.benmohamed@example.com\",\r\n  \"password\": \"password123\",\r\n  \"expertise\": [\r\n    \"Mental Health\",\r\n    \"Stress Management\"\r\n  ],\r\n  \"address\": {\r\n    \"street\": \"456 Elm St\",\r\n    \"city\": \"Sousse\",\r\n    \"state\": \"Sousse\",\r\n    \"zip\": \"4000\"\r\n  },\r\n  \"phone\": \"+216 23456789\",\r\n  \"bio\": \"I am a licensed mental health counselor with a specialization in stress management.\",\r\n  \"approved\": true\r\n},\r\n{\r\n  \"name\": {\r\n    \"first\": \"Khalid\",\r\n    \"last\": \"Ben Khalid\"\r\n  },\r\n  \"email\": \"khalid.benkhalid@example.com\",\r\n  \"password\": \"password123\",\r\n  \"expertise\": [\r\n    \"Yoga\",\r\n    \"Meditation\"\r\n  ],\r\n  \"address\": {\r\n    \"street\": \"789 Oak St\",\r\n    \"city\": \"Tunis\",\r\n    \"state\": \"Tunis\",\r\n    \"zip\": \"1002\"\r\n  },\r\n  \"phone\": \"+216 34567890\",\r\n  \"bio\": \"I am a certified yoga instructor and meditation teacher with a passion for helping others find inner peace.\",\r\n  \"approved\": true\r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/registerManyAthletes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"registerManyAthletes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"khaled@example.com\",\r\n    \"password\":\"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "current athlete",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2NiYTkyNmMwOWRhODM3NzllYzE1MyIsImlhdCI6MTY4MjMwMzk4N30.vsOAyotIqaoEIz2kIeFz9oxW78CbrWuIX09rI21P_Bo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/auth/currentAthlete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"currentAthlete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "register admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n      \"name\": \"Jane Smith\",\r\n      \"email\": \"janesmith@example.com\",\r\n      \"password\": \"password456\",\r\n      \"type\": \"gym\",\r\n      \"permissions\": {\r\n        \"manage_athletes\": true,\r\n        \"approve_coaches\": false,\r\n        \"oversee_system\": true\r\n      }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/registerAdmin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"registerAdmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/admins",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update admin",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"name\": \"Hannah Park\",\r\n        \"email\": \"amine@example.com\",\r\n        \"type\": \"association\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/admins/643cadcffecd35ca7a4ebbfb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admins",
+								"643cadcffecd35ca7a4ebbfb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/admins/643cadcffecd35ca7a4ebbfb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admins",
+								"643cadcffecd35ca7a4ebbfb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "manager",
+			"item": [
+				{
+					"name": "register manager",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Mohamed Amine Boulawdhen\",\r\n        \"email\": \"medamineboulawdhen@gmail.com\",\r\n        \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/registerManager",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"registerManager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all manager",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/managers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"managers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update manager",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Mohamed Amine Boulawdhen\",\r\n        \"email\": \"medamineboulawdhen@gmail.com\",\r\n        \"password\": \"password12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/managers/64405f0dfeca2a5cb5f5c0b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"managers",
+								"64405f0dfeca2a5cb5f5c0b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete manager",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/managers/64405f0dfeca2a5cb5f5c0b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"managers",
+								"64405f0dfeca2a5cb5f5c0b0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "session",
+			"item": [
+				{
+					"name": "add session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"location\": {\r\n            \"name\": \"Personal Training with John\",\r\n            \"street\": \"123 Main St\",\r\n            \"city\": \"Anytown\",\r\n            \"state\": \"CA\",\r\n            \"zip\": \"12345\"\r\n        },\r\n        \"name\": \"Annual Fitness Challenge\",\r\n        \"description\": \"A relaxing yoga class for all levels\",\r\n        \"startDate\": \"2023-05-01T08:00:00.000Z\",\r\n        \"completionDate\": \"2023-05-01T09:00:00.000Z\",\r\n        \"startTime\": \"8:00 AM\",\r\n        \"endTime\": \"9:00 AM\",\r\n        \"admins\": [\"64405580f461690520ed2325\"],\r\n        \"athletes\": [\r\n\"6440bc2f9a3d2e6bf7f11fcd\",\"6440bfd3d02b854cc64d14f9\",\"6440bfd3d02b854cc64d14f8\",\"6440bfd3d02b854cc64d14f7\"\r\n        ],\r\n\r\n        \"notes\": \"Please bring a yoga mat\",\r\n        \"status\": \"pending\",\r\n        \"type\": \"group training\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/sessions/createSession",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sessions",
+								"createSession"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/sessions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update session",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"location\": {\r\n            \"name\": \"Fitness Studio\",\r\n            \"street\": \"123 Main St\",\r\n            \"city\": \"Anytown\",\r\n            \"state\": \"CA\",\r\n            \"zip\": \"12345\"\r\n        },\r\n        \"name\": \"Summer Body Training\",\r\n        \"description\": \"A relaxing yoga class for all levels\",\r\n        \"startDate\": \"2023-05-01T08:00:00.000Z\",\r\n        \"completionDate\": \"2023-05-01T09:00:00.000Z\",\r\n        \"startTime\": \"8:00 AM\",\r\n        \"endTime\": \"9:00 AM\",\r\n        \"coaches\": [],\r\n        \"admins\": [\"64405580f461690520ed2325\"],\r\n        \"athletes\": [\r\n\"643c9c69b98b2648f948e3ca\",\"643c9c69b98b2648f948e3cc\",\"643c9c69b98b2648f948e3cb\",\"643cba926c09da83779ec153\",\"643cc9662fa514064f3ebce4\",\"643cd795c2fb9c4a1157de67\",\"643ce61817cd79c7db7b16de\",\"64407d9dd2638217dc3a8b98\",\"6440bc2f9a3d2e6bf7f11fcd\",\"6440bfd3d02b854cc64d14f9\",\"6440bfd3d02b854cc64d14f8\",\"6440bfd3d02b854cc64d14f7\"\r\n        ],\r\n\r\n        \"notes\": \"Please bring a yoga mat\",\r\n        \"status\": \"pending\",\r\n        \"type\": \"group training\",\r\n        \"createdAt\": \"2023-04-20T03:16:31.861Z\",\r\n        \"updatedAt\": \"2023-04-20T03:16:31.861Z\",\r\n        \"__v\": 0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/sessions/6440b4a312f0977971a8ae4f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sessions",
+								"6440b4a312f0977971a8ae4f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete session",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/sessions/6440a1129bef892070a948d3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sessions",
+								"6440a1129bef892070a948d3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "coach",
+			"item": [
+				{
+					"name": "add coach",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": {\r\n    \"first\": \"Sara\",\r\n    \"last\": \"Khalid\"\r\n    },\r\n    \"email\": \"sara.khalid@example.com\",\r\n    \"password\": \"hij789\",\r\n    \"expertise\": [\"Strength Training\", \"Bodybuilding\", \"Powerlifting\"],\r\n    \"address\": {\r\n    \"street\": \"234 Oak Street\",\r\n    \"city\": \"Jeddah\",\r\n    \"state\": \"Makkah\",\r\n    \"zip\": \"54321\"\r\n    },\r\n    \"phone\": \"+966546789012\",\r\n    \"bio\": \"I am a passionate strength coach with a focus on building muscle and increasing strength. My training programs are tailored to each client's goals and abilities.\",\r\n    \"approved\": true\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/registercoach",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"registercoach"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all coaches",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/coaches",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"coaches"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

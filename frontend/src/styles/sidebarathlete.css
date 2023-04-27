@@ -1,0 +1,12 @@
+ .CloseIcon:hover {
+    color: #0066ff;
+  }
+
+.sidebar{
+    position:absolute;
+    top:5rem;
+    left:14%
+}
+.MenuIcon{
+    font-size:2.5rem;
+}

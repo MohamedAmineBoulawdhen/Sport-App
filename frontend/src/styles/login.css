@@ -1,0 +1,88 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    box-shadow: 3px 2px 3px 2px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
+    background-color: #8cc2ff;
+    border-radius: 4px;
+  }
+  
+  .login-heading {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #090808;
+    text-shadow: 1px 1px #888;
+  }
+  
+  .form-groupp {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    width:auto;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    color: #fff;
+  }
+  
+  .form-control {
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #fff;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #fff;
+    box-shadow: none;
+  }
+  
+  .btn-primary {
+    background-color: #00509d;
+    border: none;
+    border-radius: 0;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+  
+  .btn-primary:hover {
+    background-color: #2b78ff;
+  }
+  
+  
+
+  
+  a {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    color: #0056b3;
+  }
+  
+  .forgot-password {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+
+  .password-toggle-icon {
+    position: relative;
+    right: 4%;
+    vertical-align: middle;
+    width: 1.3em;
+    height: 1.5em;
+}
+#inputPassword{
+  margin-right: -6%;
+}

@@ -1,0 +1,121 @@
+[
+  {
+    "_id": "643cadcffecd35ca7a4ebbfb",
+    "name": "Hannah Park",
+    "email": "amine@example.com",
+    "password": "password789",
+    "type": "association",
+    "__v": 0
+},
+    {
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "password": "password123",
+      "type": "association",
+      "permissions": {
+        "manage_athletes": true,
+        "approve_coaches": true,
+        "oversee_system": false
+      }
+    },
+    {
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "password": "password456",
+      "type": "gym",
+      "permissions": {
+        "manage_athletes": true,
+        "approve_coaches": false,
+        "oversee_system": true
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "bobjohnson@example.com",
+      "password": "password789",
+      "type": "personal trainer",
+      "permissions": {
+        "manage_athletes": false,
+        "approve_coaches": true,
+        "oversee_system": true
+      }
+    },
+    {
+      "name": "Sarah Lee",
+      "email": "sarahlee@example.com",
+      "password": "password321",
+      "type": "association",
+      "permissions": {
+        "manage_athletes": true,
+        "approve_coaches": true,
+        "oversee_system": true
+      }
+    },
+    {
+      "name": "Mike Smith",
+      "email": "mikesmith@example.com",
+      "password": "password654",
+      "type": "gym",
+      "permissions": {
+        "manage_athletes": false,
+        "approve_coaches": false,
+        "oversee_system": true
+      }
+    },
+    {
+        "name": "Emily Kim",
+        "email": "emilykim@example.com",
+        "password": "password123",
+        "type": "gym",
+        "permissions": {
+          "manage_athletes": true,
+          "approve_coaches": false,
+          "oversee_system": false
+        }
+      },
+      {
+        "name": "Alex Lee",
+        "email": "alexlee@example.com",
+        "password": "password456",
+        "type": "personal trainer",
+        "permissions": {
+          "manage_athletes": true,
+          "approve_coaches": true,
+          "oversee_system": false
+        }
+      },
+      {
+        "name": "Hannah Park",
+        "email": "hannahpark@example.com",
+        "password": "password789",
+        "type": "association",
+        "permissions": {
+          "manage_athletes": false,
+          "approve_coaches": false,
+          "oversee_system": true
+        }
+      },
+      {
+        "name": "David Kim",
+        "email": "davidkim@example.com",
+        "password": "password321",
+        "type": "gym",
+        "permissions": {
+          "manage_athletes": true,
+          "approve_coaches": true,
+          "oversee_system": true
+        }
+      },
+      {
+        "name": "Samantha Lee",
+        "email": "samanthalee@example.com",
+        "password": "password654",
+        "type": "personal trainer",
+        "permissions": {
+          "manage_athletes": false,
+          "approve_coaches": true,
+          "oversee_system": false
+        }
+      }
+  ]
+  

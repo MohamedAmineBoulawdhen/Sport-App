@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Ali Ben Ali",
+        "email": "alib@gmail.com",
+        "password": "password123",
+        "createdAt": "2022-05-01T12:30:00.000Z",
+        "updatedAt": "2022-05-01T12:30:00.000Z"
+        },
+        {
+            "name": "Mohamed Ben Mohamed",
+            "email": "mohamedm@gmail.com",
+            "password": "password456",
+            "createdAt": "2022-05-02T08:15:00.000Z",
+            "updatedAt": "2022-05-02T08:15:00.000Z"
+            },
+            {
+                "name": "Khalid Ben Yahia",
+                "email": "khalidy@gmail.com",
+                "password": "password789",
+                "createdAt": "2022-05-03T18:45:00.000Z",
+                "updatedAt": "2022-05-03T18:45:00.000Z"
+                },
+                {
+                    "name": "Solaiman Ben Ali",
+                    "email": "solaimana@gmail.com",
+                    "password": "password321",
+                    "createdAt": "2022-05-04T15:20:00.000Z",
+                    "updatedAt": "2022-05-04T15:20:00.000Z"
+                    },
+                    {
+                        "name": "Tawfik Ben Yahia",
+                        "email": "tawfiky@gmail.com",
+                        "password": "password654",
+                        "createdAt": "2022-05-05T10:00:00.000Z",
+                        "updatedAt": "2022-05-05T10:00:00.000Z"
+                        }
+]
