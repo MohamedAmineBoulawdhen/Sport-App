@@ -20,19 +20,13 @@ export default  function Signupathlete(){
   const [validated, setValidated] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const [formData,setFormData]=useState({});
-  const [nameathlete,setnameathlete]=useState({});
   const errorToRegister:any = useSelector((state: RootState) => state.auth.error);
   const [showSuccess,setshowSuccess] = useState(false);
   const dispatch:ThunkDispatch<any, any, AnyAction>=useDispatch();
   const navigate=useNavigate();
   const handleInputChange = (event:any) => {
     const { name, value } = event.target;
-    if (name === "first" || name === "last"){
-      setnameathlete({ ...nameathlete, [name]: value });
-    }
-    else{
-      setFormData({ ...formData, [name]: value });
-    }
+    setFormData({ ...formData, [name]: value });
   };
 
 
@@ -47,7 +41,8 @@ export default  function Signupathlete(){
       setValidated(false);
       event.preventDefault();
       event.stopPropagation();
-      const response= await dispatch(registerUser({...formData,name:nameathlete}));
+      console.log(formData)
+      const response= await dispatch(registerUser({...formData}));
       if ('error' in response) {
         console.log(response.error);
       } else {
@@ -85,7 +80,7 @@ export default  function Signupathlete(){
             type="text"
             placeholder="First name"
             minLength={3}
-            name="first"
+            name="firstName"
             onChange={handleInputChange}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -97,7 +92,7 @@ export default  function Signupathlete(){
             type="text"
             placeholder="Last name"
             minLength={3}
-            name='last'
+            name='lastName'
             onChange={handleInputChange}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'; 
 
 const SessionSchema = new mongoose.Schema({
     name:{
@@ -13,13 +13,11 @@ const SessionSchema = new mongoose.Schema({
     completionDate: Date,
     startTime:String,
     endTime:String,
-    location: {
-            name:String,
-            street: String,
-            city: String,
-            state: String,
-            zip: String
-            },
+    locationName:String,
+    street: String,
+    city: String,
+    state: String,
+    zip: String,
     coaches: {
         type:[{
         type:mongoose.Schema.Types.ObjectId,
@@ -62,9 +60,5 @@ const SessionSchema = new mongoose.Schema({
 },{timestamps:true});
 
 
-function validateAthletes(val:object[]) {
-    return val.length <= 10;
-  }
-  
 export const SessionModel = mongoose.model("Session",SessionSchema);
 

@@ -7,6 +7,7 @@ const AthleteProfiler=()=>{
   return (
     <div>
       <SidebarAthlete/>
+      <div style={{marginTop:"50px"}}>
           {user ? (
               <>
                 <p>Name: {`${user.firstName} ${user.lastName}`}</p>
@@ -15,6 +16,7 @@ const AthleteProfiler=()=>{
             ) : (
               <p>Loading user data...</p>
             )}
+            </div>
     </div>
   )
 }

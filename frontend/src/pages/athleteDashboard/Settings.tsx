@@ -6,6 +6,8 @@ import { deleteUser } from '../../features/login/athleteSlice';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { useNavigate } from 'react-router-dom';
+import SidebarAthlete from './Sidebar';
+
 const DeleteButton = styled.button`
   background-color: red;
   color: white;
@@ -21,7 +23,7 @@ const DeleteButton = styled.button`
 `;
 
 const ConfirmButton = styled.button`
-  background-color: green;
+  background-color: red;
   color: white;
   border: none;
   padding: 10px;
@@ -52,18 +54,20 @@ const handleConfirmClick = async () => {
 }
 
   return (
-    <div>
+    <><SidebarAthlete/>
+    <div style={{marginTop:"50px"}}>
       <h1>Delete Profile</h1>
       <p>Are you sure you want to delete your profile?</p>
       {showConfirm ? (
         <div>
-          <p>Deleting your profile is a permanent action and cannot be undone.</p>
+          <h5 style={{color:"red"}}>Deleting your profile is a permanent action and cannot be undone.</h5>
           <ConfirmButton onClick={handleConfirmClick}>Confirm Delete</ConfirmButton>
         </div>
       ) : (
         <DeleteButton onClick={handleDeleteClick}>Delete Profile</DeleteButton>
       )}
     </div>
+    </>
   );
 };
 

@@ -14,6 +14,7 @@ import Signupathlete from "./pages/home/signupathlete";
 import AthleteProfiler from "./pages/athleteDashboard/athleteProfiler";
 import EditPofile from "./pages/athleteDashboard/EditPofile";
 import Settings from "./pages/athleteDashboard/Settings";
+import Sessions from "./pages/athleteDashboard/sessions";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/athleteProfiler" element={<AthleteProfiler />} />
         <Route path="/editPofile" element={<EditPofile />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/sessions" element={<Sessions />} />
       </Routes>
       </div>
       <Footer/>

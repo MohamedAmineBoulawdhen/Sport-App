@@ -10,6 +10,7 @@ import mongoose from "mongoose";
 import { updateUser } from '../../features/login/athleteSlice';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
+import SidebarAthlete from './Sidebar';
 
 interface FormValues {
   firstName: string;
@@ -65,13 +66,14 @@ if (!user) {
 }
 
   return (
-    <form className="edit-profile-form" onSubmit={handleSubmit(onSubmit)}>
+    <><SidebarAthlete/>
+    <form className="edit-profile-form" onSubmit={handleSubmit(onSubmit)} style={{marginTop:"50px"}}>
 
       <div className="form-group">
         <label htmlFor="firstName">First Name</label>
         <input type="text" defaultValue="New York" 
         {...register("firstName", {
-            required: { value: true, message: "Name is required" }
+            required: { value: true, message: "First name is required" }
           })}/>
       </div>
         {errors?.firstName &&  typeof errors.firstName.message === 'string' &&<Alert severity="error"className='alert'>{errors.firstName.message }</Alert>}
@@ -79,7 +81,7 @@ if (!user) {
         <label htmlFor="lastName">Last Name</label>
         <input type="text"
         {...register("lastName", {
-            required: { value: true, message: "Name is required" }
+            required: { value: true, message: "Last name is required" }
           })}/>
       </div>
         {errors.lastName &&  typeof errors.lastName.message === 'string' &&<Alert severity="error"className='alert'>{errors.lastName.message }</Alert>}
@@ -143,7 +145,7 @@ if (!user) {
         <label htmlFor="height">Height (cm)</label>
         <input type="number"
         {...register("height", {
-                    required: { value: true, message: "height is required" }
+                    required: { value: true, message: "Height is required" }
         })}
         />
       </div>
@@ -174,6 +176,7 @@ if (!user) {
         </Alert>
         </Snackbar>
     </form>
+    </>
   )
 }
 

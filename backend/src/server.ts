@@ -46,9 +46,9 @@ app.use((req,res,next)=>{
         next(Error("end point not found"))
       }
 })
-//handle error middleware//just add next(error) in catch in controller 
-app.use((error:unknown,req:Request,res:Response,next:NextFunction)=>{
-let errorMessage = "An unknown error occurred";
-if(error instanceof Error) errorMessage = error.message;
-res.status(500).json({error:errorMessage})
-})
+// //handle error middleware//just add next(error) in catch in controller 
+// app.use((error:unknown,req:Request,res:Response,next:NextFunction)=>{
+// let errorMessage = "An unknown error occurred";
+// if(error instanceof Error) errorMessage = error.message;
+// res.status(500).json({error:errorMessage})
+// })

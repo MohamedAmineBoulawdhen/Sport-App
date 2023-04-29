@@ -25,9 +25,9 @@ const Sidebar = () => {
 
   return (
     <div className='sidebar'>
-      <IconButton onClick={handleToggle}>
+      <IconButton onClick={handleToggle} >
     <Tooltip title="Menu" placement="left" >
-        <MenuIcon className='MenuIcon'/>
+        <MenuIcon className='MenuIcon'style={{fontSize:"2.5rem"}}/>
     </Tooltip>
       </IconButton>
       <Drawer anchor="left" open={isSidebarOpen} onClose={handleClose}
@@ -50,7 +50,7 @@ const Sidebar = () => {
             </ListItemIcon>
             <ListItemText primary="Progress"/>
           </ListItemButton>
-          <ListItemButton component={Link} to="#" >
+          <ListItemButton component={Link} to="/sessions" >
             <ListItemIcon >
               <GiStairsGoal />
             </ListItemIcon>
