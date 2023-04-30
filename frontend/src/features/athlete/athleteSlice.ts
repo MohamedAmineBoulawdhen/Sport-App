@@ -14,11 +14,11 @@ interface LoginCredentials {
 }
 ////////////////////////////////////////
 
-export const registerUser = createAsyncThunk(
+export const registerAthlete = createAsyncThunk(
   '/auth/registerAthlete',
-  async (userData:Object, { rejectWithValue }) => {
+  async (athleteData:Object, { rejectWithValue }) => {
     try {
-      const response = await api.post('/auth/registerAthlete', JSON.stringify(userData),
+      const response = await api.post('/auth/registerAthlete', JSON.stringify(athleteData),
       {
         headers: {
           'Content-Type': 'application/json'
@@ -36,8 +36,8 @@ export const registerUser = createAsyncThunk(
 
 
 //////////////////////////////
-export const loginUser = createAsyncThunk(
-  'auth/loginUser',
+export const loginAthlete = createAsyncThunk(
+  'auth/loginAthlete',
   async ({ email, password }:LoginCredentials, { rejectWithValue }) => {
     try {
       const response = await api.post('/auth/login', { email, password });
@@ -52,8 +52,8 @@ export const loginUser = createAsyncThunk(
 ///////////////////////////
 
 /////////////
-export const loadUser = createAsyncThunk(
-  'auth/loadUser',
+export const loadAthlete = createAsyncThunk(
+  'auth/loadAthlete',
   async (_, { rejectWithValue }) => {
     try {
       const config = {headers: { Authorization: localStorage.getItem('token') }}
@@ -70,7 +70,7 @@ export const loadUser = createAsyncThunk(
   }
 );
 //////////////
-export const updateUser = createAsyncThunk(
+export const updateAthlete = createAsyncThunk(
   '/auth/updateAthlete',
   async ({ id, data }: { id: string, data: Object }, { rejectWithValue }) => {
     try {
@@ -88,7 +88,7 @@ export const updateUser = createAsyncThunk(
 );
 
 //////////////////
-export const deleteUser = createAsyncThunk(
+export const deleteAthlete = createAsyncThunk(
   'auth/deleteAthlete',
   async (id: string, { rejectWithValue }) => {
     try {
@@ -105,13 +105,13 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     isAuthenticated: false,
-    user: null,
+    athlete: null,
     error: null
   },
   reducers: {
-    setUser: (state, action) => {
+    setAthlete: (state, action) => {
       state.isAuthenticated = true;
-      state.user = action.payload;
+      state.athlete = action.payload;
     },
     setError: (state, action) => {
       state.error = action.payload;
@@ -119,60 +119,60 @@ const authSlice = createSlice({
     resetError: (state) => {
       state.error = null;
     },
-    logoutUser: (state) => {
+    logoutAthlete: (state) => {
       state.isAuthenticated = false;
-      state.user = null;
+      state.athlete = null;
       localStorage.removeItem('token');
     }
   },
   extraReducers: (builder) => {
     builder
-      .addCase(loginUser.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(loginAthlete.fulfilled, (state, action: PayloadAction<any>) => {
         state.isAuthenticated = true;
-        state.user = action.payload;
+        state.athlete = action.payload;
         state.error = null;
       })
-      .addCase(loginUser.rejected, (state, action: PayloadAction<any>) => {
+      .addCase(loginAthlete.rejected, (state, action: PayloadAction<any>) => {
         state.isAuthenticated = false;
-        state.user = null;
+        state.athlete = null;
         state.error = action.payload;
       })
-      .addCase(loadUser.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(loadAthlete.fulfilled, (state, action: PayloadAction<any>) => {
         state.isAuthenticated = true;
-        state.user = action.payload;
+        state.athlete = action.payload;
         state.error = null;
       })
-      .addCase(loadUser.rejected, (state, action: PayloadAction<any>) => {
+      .addCase(loadAthlete.rejected, (state, action: PayloadAction<any>) => {
         state.isAuthenticated = false;
-        state.user = null;
+        state.athlete = null;
         state.error = action.payload;
       })
-      .addCase(registerUser.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(registerAthlete.fulfilled, (state, action: PayloadAction<any>) => {
         state.error = null;
       })
-      .addCase(registerUser.rejected, (state, action: PayloadAction<any>) => {
+      .addCase(registerAthlete.rejected, (state, action: PayloadAction<any>) => {
         state.error = action.payload;
       })
-      .addCase(updateUser.fulfilled, (state, action: PayloadAction<any>) => {
-        state.user = action.payload;
+      .addCase(updateAthlete.fulfilled, (state, action: PayloadAction<any>) => {
+        state.athlete = action.payload;
         state.error = null;
       })
-      .addCase(updateUser.rejected, (state, action: PayloadAction<any>) => {
+      .addCase(updateAthlete.rejected, (state, action: PayloadAction<any>) => {
         state.error = action.payload;
       })
-      .addCase(deleteUser.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(deleteAthlete.fulfilled, (state, action: PayloadAction<any>) => {
         state.error = null;
         state.isAuthenticated = false;
-        state.user = null;
+        state.athlete = null;
         localStorage.removeItem('token');
 
       })
-      .addCase(deleteUser.rejected, (state, action: PayloadAction<any>) => {
+      .addCase(deleteAthlete.rejected, (state, action: PayloadAction<any>) => {
         state.error = action.payload;
       });
   },
 });
 
-export const { setUser, setError, resetError, logoutUser } = authSlice.actions;
+export const { setAthlete, setError, resetError, logoutAthlete } = authSlice.actions;
 
 export default authSlice.reducer;

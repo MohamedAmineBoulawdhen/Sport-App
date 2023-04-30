@@ -7,7 +7,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import {Typography } from "@material-ui/core";
 import "../../styles/signupathlete.css"
-import { registerUser, setError } from '../../features/login/athleteSlice';
+import { registerAthlete, setError } from '../../features/athlete/athleteSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
@@ -42,7 +42,7 @@ export default  function Signupathlete(){
       event.preventDefault();
       event.stopPropagation();
       console.log(formData)
-      const response= await dispatch(registerUser({...formData}));
+      const response= await dispatch(registerAthlete({...formData}));
       if ('error' in response) {
         console.log(response.error);
       } else {

@@ -8,14 +8,14 @@ import logo from '../assets/white.png';
 import { FaLock } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutUser } from '../features/login/athleteSlice';
+import { logoutAthlete } from '../features/athlete/athleteSlice';
 
 function NavBar() {
   const isAuthenticated = useSelector((state:any) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   const location = useLocation();
   const handleLogout = () => {
-    dispatch(logoutUser());
+    dispatch(logoutAthlete());
   };
   const styleCurrentLoccation=(n:number)=>{
     return n==1?{ fontWeight: 'bold', color: 'white' }:{fontWeight: 'bold', color: 'black' };

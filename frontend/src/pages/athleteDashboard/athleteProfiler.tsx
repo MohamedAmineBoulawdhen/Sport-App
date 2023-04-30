@@ -3,18 +3,18 @@ import { RootState } from '../../store/store';
 import SidebarAthlete from './Sidebar';
 
 const AthleteProfiler=()=>{
-  const user:any = useSelector((state: RootState) => state.auth.user);
+  const athlete:any = useSelector((state: RootState) => state.auth.athlete);
   return (
     <div>
       <SidebarAthlete/>
       <div style={{marginTop:"50px"}}>
-          {user ? (
+          {athlete ? (
               <>
-                <p>Name: {`${user.firstName} ${user.lastName}`}</p>
-                <p>Email: {user.email}</p>
+                <p>Name: {`${athlete.firstName} ${athlete.lastName}`}</p>
+                <p>Email: {athlete.email}</p>
               </>
             ) : (
-              <p>Loading user data...</p>
+              <p>Loading athlete data...</p>
             )}
             </div>
     </div>

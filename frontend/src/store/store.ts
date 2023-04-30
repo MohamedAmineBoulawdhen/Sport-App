@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import authReducer from '../features/login/athleteSlice';
+import authReducer from '../features/athlete/athleteSlice';
 
 // Define the type of my Redux store state
 type RootState = ReturnType<typeof store.getState>;

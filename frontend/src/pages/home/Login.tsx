@@ -4,7 +4,7 @@ import { MdLock } from 'react-icons/md';
 import '../../styles/login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { loginUser, setError } from '../../features/login/athleteSlice';
+import { loginAthlete, setError } from '../../features/athlete/athleteSlice';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { Alert } from 'react-bootstrap';
@@ -33,7 +33,7 @@ const Login = () => {
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       try {
-        const result = await dispatch(loginUser(credentials)).unwrap();
+        const result = await dispatch(loginAthlete(credentials)).unwrap();
         // The authentication was successful, so navigate to the next page
         setErrorl(false);
         navigate("/athleteProfiler");

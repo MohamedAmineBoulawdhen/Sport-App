@@ -7,7 +7,7 @@ import { FieldError } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import mongoose from "mongoose";
-import { updateUser } from '../../features/login/athleteSlice';
+import { updateAthlete } from '../../features/athlete/athleteSlice';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import SidebarAthlete from './Sidebar';
@@ -40,28 +40,28 @@ interface FormValues {
 const EditPofile = () => {
   const [snackbarIsOpen,setSnackbarIsOpen] =useState(false);
   const { register, handleSubmit, formState: { errors } , reset } = useForm<FormValues>({defaultValues:{}})
-  const user:any =  useSelector((state: RootState) => state.auth.user);
+  const athlete:any =  useSelector((state: RootState) => state.auth.athlete);
   const dispatch:ThunkDispatch<any, any, AnyAction>=useDispatch();
-  const [userId,setUserId]=useState(user?._id)
+  const [athleteId,setAthleteId]=useState(athlete?._id)
   useEffect(()=>{
-  reset({...user})
-  setUserId(user?._id)
-  },[user,reset])
+  reset({...athlete})
+  setAthleteId(athlete?._id)
+  },[athlete,reset])
 const closeSnackbar=()=>{
 setSnackbarIsOpen(false)
   }
 const onSubmit = async (data:Object) => {
-    // console.log(userId)
+    // console.log(athleteId)
     setSnackbarIsOpen(true);
     try {
-      const response= await dispatch(updateUser({ id: userId,  data }));
+      const response= await dispatch(updateAthlete({ id: athleteId,  data }));
       // console.log(response);
       
     } catch (error) {
       console.log(error)
     }
 }
-if (!user) {
+if (!athlete) {
   return <div>Loading...</div>;
 }
 

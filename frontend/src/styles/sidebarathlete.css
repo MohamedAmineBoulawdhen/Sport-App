@@ -5,8 +5,12 @@
 .sidebar{
     position:absolute;
     top:5rem;
-    left:14%
+    left:14%;
 }
 .MenuIcon{
     font-size:40px;
+}
+
+.changeColorOnHover:hover path {
+  color: #0066ff;
 }

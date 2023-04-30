@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { RootState } from '../../store/store';
-import { deleteUser } from '../../features/login/athleteSlice';
+import { deleteAthlete } from '../../features/athlete/athleteSlice';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { useNavigate } from 'react-router-dom';
@@ -38,7 +38,7 @@ const ConfirmButton = styled.button`
 
 const Settings = () => {
   const [showConfirm, setShowConfirm] = useState(false);
-  const user= useSelector((state: RootState) => state.auth.user);
+  const athlete= useSelector((state: any) => state?.auth.athlete);
   const dispatch:ThunkDispatch<any, any, AnyAction>=useDispatch();
 const navigate=useNavigate();
   const handleDeleteClick = () => {
@@ -46,7 +46,7 @@ const navigate=useNavigate();
   }
 const handleConfirmClick = async () => {
     try {
-        await dispatch(deleteUser(user?._id));
+        await dispatch(deleteAthlete(athlete?._id));
          navigate("/");
     } catch (error) {
           console.log(error)
@@ -61,7 +61,7 @@ const handleConfirmClick = async () => {
       {showConfirm ? (
         <div>
           <h5 style={{color:"red"}}>Deleting your profile is a permanent action and cannot be undone.</h5>
-          <ConfirmButton onClick={handleConfirmClick}>Confirm Delete</ConfirmButton>
+      <DeleteButton onClick={handleConfirmClick} >Confirm Delete</DeleteButton>
         </div>
       ) : (
         <DeleteButton onClick={handleDeleteClick}>Delete Profile</DeleteButton>

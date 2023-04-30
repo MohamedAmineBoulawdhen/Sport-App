@@ -44,37 +44,37 @@ const Sidebar = () => {
           }}
       >
         <List >
-          <ListItemButton component={Link} to="#" >
+          <ListItemButton component={Link} to="#" className='changeColorOnHover'>
             <ListItemIcon >
               <InsertChartOutlinedIcon />
             </ListItemIcon>
-            <ListItemText primary="Progress"/>
+            <ListItemText primary="Progress" className='ListItemText'/>
           </ListItemButton>
-          <ListItemButton component={Link} to="/sessions" >
+          <ListItemButton component={Link} to="/sessions" className='changeColorOnHover'>
             <ListItemIcon >
               <GiStairsGoal />
             </ListItemIcon>
             <ListItemText primary="Sessions"/>
           </ListItemButton>
-          <ListItemButton component={Link} to="#" >
+          <ListItemButton component={Link} to="#" className='changeColorOnHover'>
             <ListItemIcon >
               <ChatIcon />
             </ListItemIcon>
             <ListItemText primary="Messaging"/>
           </ListItemButton>
-          <ListItemButton component={Link} to="#">
+          <ListItemButton component={Link} to="#"className='changeColorOnHover'>
             <ListItemIcon>
             <EventIcon />
             </ListItemIcon>
             <ListItemText primary="Events" />
           </ListItemButton>
-          <ListItemButton component={Link} to="/editPofile">
+          <ListItemButton component={Link} to="/editPofile"className='changeColorOnHover'>
             <ListItemIcon>
             <AccountCircleOutlinedIcon />
             </ListItemIcon>
             <ListItemText primary="Profile" />
           </ListItemButton>
-          <ListItemButton component={Link} to="/settings" >
+          <ListItemButton component={Link} to="/settings" className='changeColorOnHover'>
             <ListItemIcon >
               <FiSettings size={24} />
             </ListItemIcon>
