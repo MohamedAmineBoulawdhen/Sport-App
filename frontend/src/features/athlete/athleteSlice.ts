@@ -94,8 +94,8 @@ export const deleteAthlete = createAsyncThunk(
     try {
       const response = await api.delete(`/athletes/${id}`);
       return response.data;
-    } catch (error) {
-      return rejectWithValue(error);
+    } catch (error:any) {
+      return rejectWithValue(error.response.data);
     }
   }
 );

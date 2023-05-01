@@ -6,12 +6,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import store from './store/store';  
 import { loadAthlete } from './features/athlete/athleteSlice';
+import { loadSesssions } from './features/session/sessionSlice';
 
 declare module 'react-dom' { 
   export function createRoot(container: Element | Document | null, options?: any): { render: (element: React.ReactElement) => void };
 }
 
-store.dispatch(loadAthlete());
+await store.dispatch(loadAthlete());
+await store.dispatch(loadSesssions());
 
 const rootElement = document.getElementById('root')as Element;
 const root = createRoot(rootElement);

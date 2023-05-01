@@ -1,4 +1,5 @@
 // import React from 'react'
+import { useSelector } from 'react-redux';
 import ModelSessions from './ModelSession';
 import SessionCard from './SessionCard';
 import SidebarAthlete from './Sidebar';
@@ -146,7 +147,9 @@ const sessionsexamples=[{
 ];
 
 const Sessions = () => {
-const sessionsCard=sessionsexamples.map((session:any)=> <SessionCard session={session}/>)
+  const sessions=useSelector((state:any)=>state.session.sessions);
+  const sessionsCard=sessions.map((session:any,index:number)=> <SessionCard session={session} key={index}/>)
+  console.log(sessions)
   return (
     <>
     <SidebarAthlete/>
@@ -154,7 +157,7 @@ const sessionsCard=sessionsexamples.map((session:any)=> <SessionCard session={se
         <div>
             <h1><center> Sessions </center></h1>
             <ModelSessions/>
-            <div style={{margin:"20px"}}>
+            <div style={{margin:"20px",display:"flex",flexWrap: "wrap"}}>
               {sessionsCard}
             </div>
         </div>

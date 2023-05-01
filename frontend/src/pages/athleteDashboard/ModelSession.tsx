@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -6,6 +6,13 @@ import { useForm } from 'react-hook-form'
 import { Alert } from '@mui/material'
 import mongoose from 'mongoose';
 import  "../../styles/model.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { createSession } from '../../features/session/sessionSlice';
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+
+
+
+
 
 export interface FormValues {
   name: string;
@@ -26,24 +33,36 @@ export interface FormValues {
   notes?: string;
   status?: "confirmed" | "pending" | "canceled"| "completed";
   type?: "event" | "personal training" | "nutrition plan"| "competition"| "group training";
+  _id:any;
 }
 
 
 function ModelSessions() {
 const [show, setShow] = useState(false);
-const { register, handleSubmit, formState: { errors } , reset } = useForm<FormValues>({defaultValues:{}})
+const { register, handleSubmit, formState: { errors } , reset } = useForm<FormValues>({defaultValues:{}});
+const [showAlert, setShowAlert] = useState(false);
+const myRef:any = useRef(null);
+const formRef:any = useRef(null);
 
+const errorToRegister:any = useSelector((state:any) => state.session.error);
+const dispatch:ThunkDispatch<any, any, AnyAction>=useDispatch();
 
 const onSubmit = async (data:Object) => {
-  console.log(data)
-
+  
   try {
-    // const response= await dispatch(updateAthlete({ id: athleteId,  data }));
+    const response= await dispatch(createSession(data));
     // console.log(response);
-    
-  } catch (error) {
-    console.log(error)
-  }
+    if (myRef.current){
+      myRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+    if (!("error" in response)){
+      setShowAlert(true);
+      setTimeout(()=>{setShowAlert(false)},3000);
+      formRef?.current?.reset();
+    }
+  } catch (error:any) {
+    console.log(error);
+  };
 }
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
@@ -56,10 +75,12 @@ const handleShow = () => setShow(true);
 
       <Modal show={show} onHide={handleClose} className="custom-modal">
         <Modal.Header closeButton>
-          <Modal.Title>Create a new session</Modal.Title>
+          <Modal.Title ref={myRef}>Create a new session</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        { showAlert && <Alert>Session added sucessefully</Alert>}
+        {errorToRegister && <Alert severity="error">{errorToRegister}</Alert>}
+        <Form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
 
       <Form.Group className="mb-3" controlId="Name">
         <Form.Label>Name</Form.Label>
@@ -230,7 +251,9 @@ const handleShow = () => setShow(true);
         <Form.Label>Notes</Form.Label>
         <Form.Control
           as="textarea"
-          {...register("notes")}
+          {...register("notes", {
+            required: { value: true, message: "Notes is required" },
+          })}
         />
       </Form.Group> 
 

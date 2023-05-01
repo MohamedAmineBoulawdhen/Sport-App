@@ -65,6 +65,7 @@ return res.status(200).json(sessions)
 
 export const updateSession=async (req: express.Request, res: express.Response) =>{
     try {
+        
         const {id}=req.params;
         const {maximumAthletes}=req.body
         console.log(maximumAthletes)
@@ -133,7 +134,9 @@ export const updateSession=async (req: express.Request, res: express.Response) =
  export const deleteSession=async (req: express.Request, res: express.Response) =>{
     try {
       const {id}=req.params;
-      let session = await SessionModel.findOne({id});
+      console.log(id)
+      let session = await SessionModel.find({id});
+      console.log(session)
       if (!session){
           return res.status(400).send({message:"Session not found to delete"});
       }

@@ -1,0 +1,9 @@
+.card{
+    flex-basis: calc(50% - 10px);
+    margin:5px;
+}
+@media (max-width: 765px) {
+    .card {
+      flex-basis: calc(100% - 10px);
+    }
+  }

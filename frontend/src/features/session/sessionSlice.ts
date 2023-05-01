@@ -2,32 +2,35 @@ import { createSlice,PayloadAction  } from '@reduxjs/toolkit';
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import axios from 'axios';
+import axios from 'axios'; 
+
 
 const api = axios.create({
   baseURL: 'http://localhost:8080/api',
 });
 
-interface LoginCredentials {
-  email: string;
-  password: string;
+interface Session {
+  _id: string;
+  name: string;
+  [key: string]: any;
 }
 ////////////////////////////////////////
 
 export const createSession = createAsyncThunk(
-  '/auth/registerAthlete',
-  async (userData:Object, { rejectWithValue }) => {
+  '/sessions/createSession',//must be unique
+  async (sessionData:any, { rejectWithValue }) => {
     try {
-      const response = await api.post('/auth/registerAthlete', JSON.stringify(userData),
+      const response = await api.post('/sessions/createSession', JSON.stringify(sessionData),
       {
         headers: {
           'Content-Type': 'application/json'
         }
       }
       );
-      return response.data.athlete;
+      // console.log(response.data)
+      return response.data.session;
     } catch (error:any) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.msg);
     }
   }
 );
@@ -35,46 +38,29 @@ export const createSession = createAsyncThunk(
 ///////////////////////////////////////
 
 
-//////////////////////////////
-export const loginUser = createAsyncThunk(
-  'auth/loginUser',
-  async ({ email, password }:LoginCredentials, { rejectWithValue }) => {
-    try {
-      const response = await api.post('/auth/login', { email, password });
-      const { token } = response.data;
-      localStorage.setItem('token', token);
-      return response.data.existingAthlete;
-    } catch (error:any) {
-      return rejectWithValue(error?.response?.data);
-    }
-  }
-);
-///////////////////////////
+
 
 /////////////
-export const loadUser = createAsyncThunk(
-  'auth/loadUser',
+export const loadSesssions = createAsyncThunk(
+  '/sessions/loadSesssions', //must be unique
   async (_, { rejectWithValue }) => {
     try {
-      const config = {headers: { Authorization: localStorage.getItem('token') }}
-      if (!localStorage.getItem('token')) {
-        throw new Error('Token not found in local storage');
-      }
-      const response = await api.get('/auth/currentAthlete', config);
+      const response = await api.get('/sessions');
       // console.log(response);
       return response.data;
     } catch (error:any) {
-      // console.log(error.response ,error.response.status)
+      // console.log("error.response",error.response ,"error.response.status",error.response.statusText)
       return rejectWithValue(error?.response?.data);
     }
   }
 );
 //////////////
-export const updateUser = createAsyncThunk(
-  '/auth/updateAthlete',
-  async ({ id, data }: { id: string, data: Object }, { rejectWithValue }) => {
+export const UpdateSession = createAsyncThunk(
+  '/sessions/UpdateSession',//must be unique
+  async ({ _id, rest }: { _id: any, rest: Object }, { rejectWithValue }) => {
     try {
-      const response = await api.patch(`/athletes/${id}`, JSON.stringify(data), {
+      // console.log(JSON.stringify(rest))
+      const response = await api.patch(`/sessions/${_id}`, JSON.stringify(rest), {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -88,91 +74,83 @@ export const updateUser = createAsyncThunk(
 );
 
 //////////////////
-export const deleteUser = createAsyncThunk(
-  'auth/deleteAthlete',
-  async (id: string, { rejectWithValue }) => {
+export const deleteSession = createAsyncThunk(
+  '/sessions/deleteSession',//must be unique
+  async ({_id}:{_id: any}, { rejectWithValue }) => {
     try {
-      const response = await api.delete(`/athletes/${id}`);
+      console.log(_id);
+      const response = await api.delete(`/sessions/${_id}`);
       return response.data;
-    } catch (error) {
-      return rejectWithValue(error);
+    } catch (error:any) {
+      return rejectWithValue(error.response.data);
     }
   }
 );
 ///////////////////
+interface SessionState {
+  sessions: Session[];
+  error: string | null;
+}
 
-const authSlice = createSlice({
-  name: 'auth',
-  initialState: {
-    isAuthenticated: false,
-    user: null,
-    error: null
-  },
+const initialState: SessionState = {
+  sessions: [],
+  error: null
+};
+
+const sessionSlice = createSlice({
+  name: 'sessions',
+  initialState,
   reducers: {
-    setUser: (state, action) => {
-      state.isAuthenticated = true;
-      state.user = action.payload;
+    setSession: (state, action) => {
+      state.sessions = action.payload;
     },
     setError: (state, action) => {
       state.error = action.payload;
     },
     resetError: (state) => {
       state.error = null;
-    },
-    logoutUser: (state) => {
-      state.isAuthenticated = false;
-      state.user = null;
-      localStorage.removeItem('token');
     }
   },
   extraReducers: (builder) => {
     builder
-      .addCase(loginUser.fulfilled, (state, action: PayloadAction<any>) => {
-        state.isAuthenticated = true;
-        state.user = action.payload;
+      .addCase(loadSesssions.fulfilled, (state, action: PayloadAction<any>) => {
+        state.sessions = action.payload;
         state.error = null;
       })
-      .addCase(loginUser.rejected, (state, action: PayloadAction<any>) => {
-        state.isAuthenticated = false;
-        state.user = null;
+      .addCase(loadSesssions.rejected, (state, action: PayloadAction<any>) => {
+        state.sessions = [];
         state.error = action.payload;
       })
-      .addCase(loadUser.fulfilled, (state, action: PayloadAction<any>) => {
-        state.isAuthenticated = true;
-        state.user = action.payload;
+      .addCase(createSession.fulfilled, (state, action: PayloadAction<Session>) => {
         state.error = null;
-      })
-      .addCase(loadUser.rejected, (state, action: PayloadAction<any>) => {
-        state.isAuthenticated = false;
-        state.user = null;
-        state.error = action.payload;
-      })
-      .addCase(createSession.fulfilled, (state, action: PayloadAction<any>) => {
-        state.error = null;
+        if(action.payload){
+          state.sessions.push(action.payload)
+        }
       })
       .addCase(createSession.rejected, (state, action: PayloadAction<any>) => {
         state.error = action.payload;
       })
-      .addCase(updateUser.fulfilled, (state, action: PayloadAction<any>) => {
-        state.user = action.payload;
+      .addCase(UpdateSession.fulfilled, (state, action: PayloadAction<any>) => {
+        const id=action.payload._id;
+        state.sessions = state.sessions?.filter((session:any) => session?._id!==id);
+        state.sessions.push(action.payload);
         state.error = null;
       })
-      .addCase(updateUser.rejected, (state, action: PayloadAction<any>) => {
+      .addCase(UpdateSession.rejected, (state, action: PayloadAction<any>) => {
         state.error = action.payload;
       })
-      .addCase(deleteUser.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(deleteSession.fulfilled, (state, action: PayloadAction<any>) => {
         state.error = null;
-        state.isAuthenticated = false;
-        state.user = null;
-        localStorage.removeItem('token');
-
+        if (state.sessions){
+          state.sessions = state.sessions?.filter((session:any) => session?._id!==action.payload._id);
+        }
       })
-      .addCase(deleteUser.rejected, (state, action: PayloadAction<any>) => {
+      .addCase(deleteSession.rejected, (state, action: PayloadAction<any>) => {
         state.error = action.payload;
       });
   },
 });
 
-export const { setUser, setError, resetError, logoutUser } = authSlice.actions;
+export const { setSession, setError, resetError } = sessionSlice.actions;
 
-export default authSlice.reducer;
+export default sessionSlice.reducer;

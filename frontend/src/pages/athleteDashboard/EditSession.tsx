@@ -7,8 +7,12 @@ import { Alert } from '@mui/material'
 import mongoose from 'mongoose';
 import  "../../styles/model.css";
 import { FaEdit } from 'react-icons/fa';
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
+import { UpdateSession } from '../../features/session/sessionSlice';
 
 export interface FormValues {
+  _id:any;
   name: string;
   description: string;
   startDate: string;
@@ -30,17 +34,21 @@ export interface FormValues {
 }
 
 
-function EditSession({session}) {
+function EditSession({session}: {session: FormValues}) {
 const [show, setShow] = useState(false);
+const dispatch:ThunkDispatch<any, any, AnyAction>=useDispatch();
 const { register, handleSubmit, formState: { errors } , reset } = useForm<FormValues>({defaultValues:session})
 
 
-const onSubmit = async (data:Object) => {
-  console.log(data)
-
+const onSubmit = async (data:any) => { 
+  // console.log(data)
+  let _id: any ;
+  let rest: object;
+ ({ _id, ...rest } = data);
+// console.log(_id,rest)
   try {
-    // const response= await dispatch(updateAthlete({ id: athleteId,  data }));
-    // console.log(response);
+    const response= await dispatch(UpdateSession({ _id,  rest }));
+    console.log(response);
     
   } catch (error) {
     console.log(error)
@@ -58,7 +66,7 @@ const handleShow = () => setShow(true);
 
       <Modal show={show} onHide={handleClose} className="custom-modal">
         <Modal.Header closeButton>
-          <Modal.Title>Create a new session</Modal.Title>
+          <Modal.Title>Edit session</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form onSubmit={handleSubmit(onSubmit)}>
