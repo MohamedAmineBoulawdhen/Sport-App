@@ -1,9 +1,0 @@
-      .addCase(UpdateSessionn.fulfilled, (state, action: PayloadAction<any>) => {
-        const id=action.payload._id;
-        state.sessions = state.sessions?.filter((session:any) => session?._id!==id);
-        state.sessions.push(action.payload);
-        state.error = null;
-      })
-      .addCase(UpdateSessionn.rejected, (state, action: PayloadAction<any>) => {
-        state.error = action.payload;
-      })
