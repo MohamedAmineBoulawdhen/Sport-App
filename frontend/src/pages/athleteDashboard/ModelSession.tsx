@@ -70,7 +70,7 @@ const handleShow = () => setShow(true);
   return (
     <>
       <Button variant="primary" onClick={handleShow} style={{fontWeight:'bold'}}>
-        New session
+        Set up a new session
       </Button>
 
       <Modal show={show} onHide={handleClose} className="custom-modal">

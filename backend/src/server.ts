@@ -3,9 +3,8 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import compresssion from "compression";
 import dotenv from "dotenv";
-import router from "./routes/index";
-import { Request,Response,NextFunction } from "express";
 import morgan from "morgan";
+import router from "./routes/index";
 
 
 dotenv.config({ path: __dirname + '/../config/.env' });
@@ -25,7 +24,7 @@ app.use(cors({
 app.use(compresssion());
 //enable parsing of http request bodies in JSON format  
 app.use(express.json());
-//enable parsing of http request cookies 
+//enable parsing of http request cookies and make them available using req.cookies
 app.use(cookieParser());
 
 //connect to db

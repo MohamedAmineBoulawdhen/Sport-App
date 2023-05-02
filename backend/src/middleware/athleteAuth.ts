@@ -1,5 +1,5 @@
 import jwt, { JwtPayload } from "jsonwebtoken"
-import { AthleteModel,AthleteSchema } from "../models/athlete"
+import { AthleteModel } from "../models/athlete"
 import express from 'express';
 import mongoose from "mongoose";
 

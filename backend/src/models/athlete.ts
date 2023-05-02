@@ -68,3 +68,4 @@ export const AthleteSchema = new mongoose.Schema({
 }, { strict: true });//using strict: true, Mongoose will not save any properties that are not defined in the schema
 
 export const AthleteModel = mongoose.model("Athlete",AthleteSchema)
+

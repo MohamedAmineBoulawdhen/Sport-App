@@ -27,7 +27,7 @@ export const register= async (req: express.Request, res: express.Response)=>{
        },process.env.SECRET_KEY)
         return res.status(200).json({msg:"success to register",coach,token});
     } catch (error) {
-           console.log(error);
+        //    console.log(error);
            return res.status(400).json({msg:"register controller error",error: error.message});     
     }
 }
@@ -52,7 +52,7 @@ if (!verifier.reduce((acc,curr)=> acc&&curr)){return res.status(400).json({
 const coaches = await CoachModel.create(req.body);
 return res.status(200).json(coaches)
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return res.status(400).send({message:error.message});
     }
 }
@@ -74,7 +74,7 @@ export const login= async (req: express.Request, res: express.Response)=>{
            },process.env.SECRET_KEY)
         res.status(200).json({msg:"login successful",existingcoach,token});
     } catch (error) {
-           console.log(error);
+        //    console.log(error);
            return res.status(400).json({msg:"login controller error",error: error.message});     
     }
 }
@@ -87,7 +87,7 @@ const coachs = await CoachModel.find();
 
 return res.status(200).json(coachs)
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return res.status(400).send({message:error.message});
     }
 }
@@ -102,7 +102,7 @@ export const deleteCoach=async (req: express.Request, res: express.Response) =>{
       const deletedcoach=await CoachModel.findOneAndDelete({_id:id});  
       return res.status(200).json(deletedcoach);
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return res.status(400).send({message:error.message});
     }
 }
@@ -113,22 +113,22 @@ export const updateCoach=async (req: express.Request, res: express.Response) =>{
         if(!mongoose.isValidObjectId(id)){
             return res.status(400).send({message:"Invalid id"});
           }
-     console.log(Object.keys(req.body).length);
+    //  console.log(Object.keys(req.body).length);
      if (!Object.keys(req.body).length){
         return res.status(400).send({message:"At least one property provided to update"});
      }
-
+     // if (!Object.keys(req.body).map(property=>property in coach).reduce((acc,curr)=>acc&&curr)){
+     //     return res.status(400).send({message:"One or more properties not found"});
+     // }
+     
     let coach = await CoachModel.findByIdAndUpdate(id,req.body,{ new: true });//By default, findByIdAndUpdate returns the original document
     if (!coach){
         return res.status(400).send({message:"coach not found"});
     }
-    if (!Object.keys(req.body).map(property=>property in coach).reduce((acc,curr)=>acc&&curr)){
-        return res.status(400).send({message:"One or more properties not found"});
-    }
     return res.status(200).json(coach);
 
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return res.status(400).send({message:error.message});
     }
 }

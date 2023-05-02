@@ -38,7 +38,7 @@ export const register= async (req: express.Request, res: express.Response)=>{
        },process.env.SECRET_KEY)
         return res.status(200).json({msg:"success to register",athlete,token});
     } catch (error) {
-           console.log(error);
+        //    console.log(error);
            return res.status(400).json({msg:"register controller error",error: error.message});     
     }
 }
@@ -73,7 +73,7 @@ if (!verifier.reduce((acc,curr)=> acc&&curr)){return res.status(400).json({
 const athletes = await AthleteModel.create(req.body);
 return res.status(200).json(athletes)
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return res.status(400).send({message:error.message});
     }
 }
@@ -95,7 +95,7 @@ export const login= async (req: express.Request, res: express.Response)=>{
            },process.env.SECRET_KEY)
         res.status(200).json({msg:"login successful",existingAthlete,token});
     } catch (error) {
-           console.log(error);
+        //    console.log(error);
            return res.status(400).json({msg:"login controller error",error: error.message});     
     }
 }
@@ -108,7 +108,7 @@ const athletes = await AthleteModel.find();
 
 return res.status(200).json(athletes)
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return res.status(400).send({message:error.message});
     }
 }
@@ -123,7 +123,7 @@ export const deleteAthlete=async (req: express.Request, res: express.Response) =
       const deletedAthlete=await AthleteModel.findOneAndDelete({_id:id});  
       return res.status(200).json(deletedAthlete);
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return res.status(400).send({message:error.message});
     }
 }
@@ -134,22 +134,22 @@ export const updateAthlete=async (req: express.Request, res: express.Response) =
         if(!mongoose.isValidObjectId(id)){
             return res.status(400).send({message:"Invalid id"});
           }
-     console.log(Object.keys(req.body).length);
+    //  console.log(Object.keys(req.body).length);
      if (!Object.keys(req.body).length){
         return res.status(400).send({message:"At least one property provided to update"});
      }
+     // if (!Object.keys(req.body).map(property=>property in athlete).reduce((acc,curr)=>acc&&curr)){
+     //     return res.status(400).send({message:"One or more properties not found"});
+     // }
 
     let athlete = await AthleteModel.findByIdAndUpdate(id,req.body,{ new: true });//By default, findByIdAndUpdate returns the original document
     if (!athlete){
         return res.status(400).send({message:"Athlete not found"});
     }
-    if (!Object.keys(req.body).map(property=>property in athlete).reduce((acc,curr)=>acc&&curr)){
-        return res.status(400).send({message:"One or more properties not found"});
-    }
     return res.status(200).json(athlete);
 
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return res.status(400).send({message:error.message});
     }
 }

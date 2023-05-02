@@ -19,7 +19,7 @@ export const register= async (req: express.Request, res: express.Response)=>{
        admin.save()
         return res.status(200).json({msg:"success to register",admin});
     } catch (error) {
-           console.log(error);
+        //    console.log(error);
            return res.status(400).json({msg:"register controller error",error: error.message});     
     }
 }
@@ -30,7 +30,7 @@ const admins = await AdminModel.find();
 
 return res.status(200).json(admins)
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return res.status(400).send({message:error.message});
     }
 }
@@ -41,7 +41,7 @@ export const updateAdmin=async (req: express.Request, res: express.Response) =>{
         if(!mongoose.isValidObjectId(id)){
             return res.status(400).send({message:"Invalid id"});
           }
-     console.log(Object.keys(req.body).length);
+    //  console.log(Object.keys(req.body).length);
      if (!Object.keys(req.body).length){
         return res.status(400).send({message:"At least one property provided to update"});
      } let admin = await AdminModel.findByIdAndUpdate(id,req.body,{ new: true });//By default, findByIdAndUpdate returns the original document
@@ -54,7 +54,7 @@ export const updateAdmin=async (req: express.Request, res: express.Response) =>{
      return res.status(200).json(admin);
  
      } catch (error) {
-         console.log(error.message);
+        //  console.log(error.message);
          return res.status(400).send({message:error.message});
      }
  }
@@ -68,7 +68,7 @@ export const updateAdmin=async (req: express.Request, res: express.Response) =>{
       const deletedAdmin=await AdminModel.findOneAndDelete({_id:id});  
       return res.status(200).json(deletedAdmin);
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return res.status(400).send({message:error.message});
     }
 } 

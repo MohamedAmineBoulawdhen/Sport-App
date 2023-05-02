@@ -11,24 +11,24 @@ export const createSession= async (req: express.Request, res: express.Response)=
         }
         //check coachs id
         if (req.body?.coaches){
-            const coachCount =  await mongoose.model('Coach').find({ _id: { $in: req.body.coaches} });
-            if (coachCount.length !== req.body?.coaches?.length) {
+            const existingCoachesDocuments =  await mongoose.model('Coach').find({ _id: { $in: req.body.coaches} });
+            if (existingCoachesDocuments.length !== req.body?.coaches?.length) {
                 // Throw an error if one or more coaches were not found
                 throw new Error('One or more of the specified coaches does not exist.');
               }
         }
         //check admin id
         if (req.body?.admins){
-            const adminCount =  await mongoose.model('Admin').find({ _id: { $in: req.body.admins } });
-            if (adminCount.length !== req.body?.admins?.length) {
+            const existingadminsDocuments =  await mongoose.model('Admin').find({ _id: { $in: req.body.admins } });
+            if (existingadminsDocuments.length !== req.body?.admins?.length) {
                 // Throw an error if one or more admins were not found
                 throw new Error('One or more of the specified admins does not exist.');
               }
         }
         //check athletes id
         if (req.body?.athletes){
-            const athleteCount=  await mongoose.model('Athlete').find({ _id: { $in: req.body.athletes } });
-            if (athleteCount.length !== req.body?.athletes?.length) {
+            const existingathletesDocuments=  await mongoose.model('Athlete').find({ _id: { $in: req.body.athletes } });
+            if (existingathletesDocuments.length !== req.body?.athletes?.length) {
                 // Throw an error if one or more athletees were not found
                 throw new Error('One or more of the specified athletes does not exist.');
               }
@@ -68,7 +68,7 @@ export const updateSession=async (req: express.Request, res: express.Response) =
         
         const {id}=req.params;
         const {maximumAthletes}=req.body
-        console.log(maximumAthletes)
+        // console.log(maximumAthletes)
         if(!mongoose.isValidObjectId(id)){
             return res.status(400).send({message:"Invalid id"});
           }
@@ -77,24 +77,24 @@ export const updateSession=async (req: express.Request, res: express.Response) =
      } 
     //check coaches id
     if (req.body?.coaches){
-        const coachCount =  await mongoose.model('Coach').find({ _id: { $in: req.body.coaches} });
-        if (coachCount.length !== req.body?.coaches?.length) {
+        const existingCoachesDocuments =  await mongoose.model('Coach').find({ _id: { $in: req.body.coaches} });
+        if (existingCoachesDocuments.length !== req.body?.coaches?.length) {
             // Throw an error if one or more coaches were not found
             throw new Error('One or more of the specified coaches does not exist.');
             }
     }
     //check admin id
     if (req.body?.admins){
-            const adminCount =  await mongoose.model('Admin').find({ _id: { $in: req.body.admins } });
-            if (adminCount.length !== req.body?.admins?.length) {
+            const existingadminsDocuments =  await mongoose.model('Admin').find({ _id: { $in: req.body.admins } });
+            if (existingadminsDocuments.length !== req.body?.admins?.length) {
                 // Throw an error if one or more admins were not found
                 throw new Error('One or more of the specified admins does not exist.');
               }
     }
     //check athletes id
     if (req.body?.athletes){
-            const athleteCount=  await mongoose.model('Athlete').find({ _id: { $in: req.body.athletes } });
-            if (athleteCount.length !== req.body?.athletes?.length) {
+            const existingathletesDocuments=  await mongoose.model('Athlete').find({ _id: { $in: req.body.athletes } });
+            if (existingathletesDocuments.length !== req.body?.athletes?.length) {
                 // Throw an error if one or more athletees were not found
                 throw new Error('One or more of the specified athletes does not exist.');
               }
@@ -134,14 +134,14 @@ export const updateSession=async (req: express.Request, res: express.Response) =
  export const deleteSession=async (req: express.Request, res: express.Response) =>{
     try {
       const {id}=req.params;
-      console.log(id)
+    //   console.log(id)
+    if(!mongoose.isValidObjectId(id)){
+      return res.status(400).send({message:"Invalid id"});
+    }
       let session = await SessionModel.find({id});
-      console.log(session)
+    //   console.log(session)
       if (!session){
           return res.status(400).send({message:"Session not found to delete"});
-      }
-      if(!mongoose.isValidObjectId(id)){
-        return res.status(400).send({message:"Invalid id"});
       }
       const deletedsession=await SessionModel.findOneAndDelete({_id:id});  
       return res.status(200).json(deletedsession);

@@ -1,7 +1,7 @@
 import {check,validationResult} from "express-validator";
 import express from "express";
 
-export const registerValidation = () => [
+export const registerValidation = () => [ 
     check("email","Please enter a valid email address").isEmail(),
     check("password","Password should be at least 6 characters long").isLength({ min: 6 }),
     check("firstName","First name is required").notEmpty(),
