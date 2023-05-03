@@ -57,7 +57,7 @@ const onSubmit = async (data:Object) => {
     }
     if (!("error" in response)){
       setShowAlert(true);
-      setTimeout(()=>{setShowAlert(false)},3000);
+      setTimeout(()=>{setShowAlert(false)},3000); 
       formRef?.current?.reset();
     }
   } catch (error:any) {

@@ -3,13 +3,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { useForm } from 'react-hook-form'
-import { Alert } from '@mui/material'
+import { Alert, Snackbar } from '@mui/material'
 import mongoose from 'mongoose';
 import  "../../styles/model.css";
 import { FaEdit } from 'react-icons/fa';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { UpdateSession } from '../../features/session/sessionSlice';
+import formatedDate from '../../util/formatedDate';
+
 
 export interface FormValues {
   _id:any;
@@ -36,7 +38,13 @@ export interface FormValues {
 
 function EditSession({session}: {session: FormValues}) {
 const [show, setShow] = useState(false);
-const dispatch:ThunkDispatch<any, any, AnyAction>=useDispatch();
+const [showAlert, setShowAlert] = useState(false);
+const dispatch:ThunkDispatch<any, any, AnyAction> = useDispatch();
+let  {startDate,completionDate} = session
+startDate = formatedDate(startDate)
+completionDate = formatedDate(completionDate)
+session={...session,startDate,completionDate}
+// console.log(startDate,completionDate)
 const { register, handleSubmit, formState: { errors } , reset } = useForm<FormValues>({defaultValues:session})
 
 
@@ -49,7 +57,8 @@ const onSubmit = async (data:any) => {
   try {
     const response= await dispatch(UpdateSession({ _id,  rest }));
     console.log(response);
-    
+    setShowAlert(true);
+    setTimeout(()=>{setShowAlert(false)},3000);
   } catch (error) {
     console.log(error)
   }
@@ -294,6 +303,11 @@ const handleShow = () => setShow(true);
       <Button variant="primary" type="submit">
         Save
       </Button>
+      <Snackbar open={showAlert} autoHideDuration={2000} onClose={()=>showAlert}>
+        <Alert  severity="success">
+        Your changes have been saved.
+        </Alert>
+        </Snackbar>
     </Form>
         </Modal.Body>
       </Modal>

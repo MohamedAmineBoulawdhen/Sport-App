@@ -18,8 +18,9 @@ export default function Footer() {
                 Fitness Profiler
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit.
+               Lorem ipsum dolor sitamet, consectetur adipisicing elit. 
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+               Iste temporibus illum quos itaque quibusdam sed corporis a doloribus dolorum voluptate!
               </p>
             </MDBCol>
 

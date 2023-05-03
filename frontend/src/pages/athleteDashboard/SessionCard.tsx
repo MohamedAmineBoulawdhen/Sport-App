@@ -1,14 +1,18 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { FormValues } from "./ModelSession";
 import EditSession from "./EditSession";
 import "../../styles/sessionCard.css";
 import IconButton from '@material-ui/core/IconButton';
-import { Delete } from '@mui/icons-material';
 import DeleteSessionModal from "./DeleteSessionModal";
 import { useDispatch } from "react-redux";
 import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
 import { deleteSession } from "../../features/session/sessionSlice";
+import formatedDate from '../../util/formatedDate';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarAlt, faClock, faMapMarkerAlt, faNotesMedical, faMapMarker, faUsers, faInfoCircle, faCaretRight, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import { FaClock, FaMapMarkerAlt, FaUsers } from "react-icons/fa";
+
 
 type Props = {
   session: FormValues;
@@ -50,23 +54,40 @@ const handleDelete=async(e:any)=>{
         <EditSession session={session}/>
         <Card.Title style={{lineHeight: "2rem"}}>{name}</Card.Title>
       </Card.Header>
-      <Card.Body>
-        <Card.Subtitle>{description}</Card.Subtitle>
-        <Card.Text>{`${startDate} - ${completionDate}`}</Card.Text>
-        <Card.Text>{`${startTime} - ${endTime}`}</Card.Text>
-        <Card.Text>{locationName}</Card.Text>
-        <Card.Text>{`${street}, ${city}, ${state} ${zip}`}</Card.Text>
-        {/* <Card.Text>{`Coaches: ${coaches?.join(", ")}`}</Card.Text>
-        <Card.Text>{`Admins: ${admin?.join(", ")}`}</Card.Text> */}
-        <Card.Text>{`Max Athletes: ${maximumAthletes || 10}`}</Card.Text>
-        {/* <Card.Text>{`Athletes: ${athletes?.join(", ")}`}</Card.Text> */}
-        <Card.Text>{`Notes: ${notes}`}</Card.Text>
-        <Card.Text>{`Status: ${status}`}</Card.Text>
-        <Card.Text>{`Type: ${type}`}</Card.Text>
-        <IconButton aria-label="delete" style={{float:"right"}}>
-          <DeleteSessionModal onDelete={handleDelete} />
-        </IconButton>
+      <Card.Body style={{ backgroundColor: "#f2f2f2", padding: "20px",lineHeight:"2.5" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <Card.Subtitle>
+            {description}
+          </Card.Subtitle>
+        </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+        <FontAwesomeIcon icon={faCaretRight} style={{ marginRight: "10px", color: "#333333" }} />
+          <Card.Text>{`Type: ${type}`}</Card.Text>
+        </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <FaClock size={16} />
+          <Card.Text style={{ marginLeft: 8 }}>{`${formatedDate(startDate)} - ${formatedDate(completionDate)} | ${startTime} - ${endTime}`}</Card.Text>
+        </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <FaMapMarkerAlt size={16} />
+          <Card.Text style={{ marginLeft: 8 }}>{locationName}{`,${street}, ${city}, ${state} ${zip}`}</Card.Text>
+        </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+        </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <FaUsers size={16} />
+          <Card.Text style={{ marginLeft: 8 }}>{`Max Athletes: ${maximumAthletes}`}</Card.Text>
+        </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+        <FontAwesomeIcon icon={faInfoCircle} style={{ marginRight: "10px", color: "#333333" }} />
+          <Card.Text>{`Status: ${status}`}</Card.Text>
+        </div>
+        <Card.Text><FontAwesomeIcon icon={faNotesMedical} /> {`Notes: ${notes}`}</Card.Text>
+          <IconButton aria-label="delete" style={{float:"right"}}>
+            <DeleteSessionModal onDelete={handleDelete} />
+          </IconButton>
       </Card.Body>
+
     </Card>
   );
 };

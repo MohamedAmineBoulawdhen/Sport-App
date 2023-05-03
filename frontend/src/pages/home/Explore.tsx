@@ -3,7 +3,7 @@
 const Explore = () => {
     return (
         <>
-            ExplorePage
+            Explore Page
         </>
     )
 }
