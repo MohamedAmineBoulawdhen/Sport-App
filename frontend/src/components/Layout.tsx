@@ -1,11 +1,11 @@
-import Navbar from './NavBar';
+import Navbar from './NavBar'
 
 const Layout = () => {
-    return (
-        <>
-            <Navbar />
-        </>
-    )
+  return (
+    <>
+      <Navbar />
+    </>
+  )
 }
 
 export default Layout

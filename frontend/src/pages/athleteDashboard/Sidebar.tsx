@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { GiStairsGoal } from 'react-icons/gi';
-import { HiOutlineLogin } from 'react-icons/hi';
-import { FiSettings } from 'react-icons/fi';
+import { useState } from 'react'
+import { Link,NavLink, useLocation } from 'react-router-dom'
+import { GiStairsGoal } from 'react-icons/gi'
+import { HiOutlineLogin } from 'react-icons/hi'
+import { FiSettings } from 'react-icons/fi'
 import {
   IconButton,
   List,
@@ -10,25 +10,26 @@ import {
   ListItemIcon,
   ListItemText,
   Drawer,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined';
-import { Tooltip } from '@material-ui/core';
-import ChatIcon from '@mui/icons-material/Chat';
-import EventIcon from '@mui/icons-material/Event';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import '../../styles/sidebarathlete.css';
+} from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined'
+import { Tooltip } from '@material-ui/core'
+import ChatIcon from '@mui/icons-material/Chat'
+import EventIcon from '@mui/icons-material/Event'
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
+import '../../styles/sidebarathlete.css'
 
 const Sidebar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const location=useLocation()
 
   const handleToggle = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+    setIsSidebarOpen(!isSidebarOpen)
+  }
 
   const handleClose = () => {
-    setIsSidebarOpen(false);
-  };
+    setIsSidebarOpen(false)
+  }
 
   return (
     <div className="sidebar">
@@ -55,7 +56,7 @@ const Sidebar = () => {
       >
         <List>
           <ListItemButton
-            component={Link}
+            component={NavLink}
             to="#"
             className="changeColorOnHover"
           >
@@ -67,10 +68,21 @@ const Sidebar = () => {
           <ListItemButton
             component={Link}
             to="/sessions"
+            style={
+              location.pathname === '/sessions'
+                ? { color: '#0066ff' }
+                : { color: '' }
+            }
             className="changeColorOnHover"
           >
             <ListItemIcon>
-              <GiStairsGoal />
+              <GiStairsGoal
+                style={
+                  location.pathname === '/sessions'
+                    ? { color: '#0066ff' }
+                    : { color: '' }
+                }
+              />
             </ListItemIcon>
             <ListItemText primary="Sessions" />
           </ListItemButton>
@@ -97,20 +109,43 @@ const Sidebar = () => {
           <ListItemButton
             component={Link}
             to="/editPofile"
+            style={
+              location.pathname === '/editPofile'
+                ? { color: '#0066ff' }
+                : { color: '' }
+            }
             className="changeColorOnHover"
           >
             <ListItemIcon>
-              <AccountCircleOutlinedIcon />
+              <AccountCircleOutlinedIcon
+                style={
+                  location.pathname === '/editPofile'
+                    ? { color: '#0066ff' }
+                    : { color: '' }
+                }
+              />
             </ListItemIcon>
             <ListItemText primary="Profile" />
           </ListItemButton>
           <ListItemButton
             component={Link}
             to="/settings"
+            style={
+              location.pathname === '/settings'
+                ? { color: '#0066ff' }
+                : { color: '' }
+            }
             className="changeColorOnHover"
           >
             <ListItemIcon>
-              <FiSettings size={24} />
+              <FiSettings
+                size={24}
+                style={
+                  location.pathname === '/settings'
+                    ? { color: '#0066ff' }
+                    : { color: '' }
+                }
+              />
             </ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItemButton>
@@ -120,7 +155,7 @@ const Sidebar = () => {
         </IconButton>
       </Drawer>
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

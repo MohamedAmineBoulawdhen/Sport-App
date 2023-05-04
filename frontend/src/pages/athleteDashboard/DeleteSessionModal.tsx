@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import {
   Button,
   Dialog,
@@ -6,28 +6,29 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-} from '@material-ui/core';
-import { Delete } from '@mui/icons-material';
+} from '@material-ui/core'
+import { Delete } from '@mui/icons-material'
 
-function DeleteSessionModal({ onDelete }:{onDelete:any}) {
-  const [open, setOpen] = useState(false);
+function DeleteSessionModal({ onDelete }: { onDelete: any }) {
+  const [open, setOpen] = useState(false)
 
   const handleDelete = () => {
-    onDelete();
-    setOpen(false);
-  };
+    onDelete()
+    setOpen(false)
+  }
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
 
   return (
     <>
-      <Delete  onClick={handleOpen} />
+      <Delete onClick={handleOpen} />
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Delete Session</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Are you sure you want to delete this session? This action cannot be undone.
+            Are you sure you want to delete this session? This action cannot be
+            undone.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -40,6 +41,6 @@ function DeleteSessionModal({ onDelete }:{onDelete:any}) {
         </DialogActions>
       </Dialog>
     </>
-  );
+  )
 }
-export default DeleteSessionModal;
+export default DeleteSessionModal

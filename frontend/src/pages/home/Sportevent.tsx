@@ -1,9 +1,5 @@
 const SportEvent = () => {
-    return (
-        <>
-            Sport Event
-        </>
-    )
+  return <>Sport Event</>
 }
 
 export default SportEvent

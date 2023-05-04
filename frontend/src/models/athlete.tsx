@@ -1,9 +1,9 @@
-import * as yup from 'yup';
+import * as yup from 'yup'
 
 export const athleteSchema = yup.object().shape({
-  "name": yup.object().shape({
-    "first": yup.string().required(),
-    "last": yup.string().required(),
+  name: yup.object().shape({
+    first: yup.string().required(),
+    last: yup.string().required(),
   }),
   email: yup.string().email().required(),
   password: yup.string().required().min(6),
@@ -20,7 +20,9 @@ export const athleteSchema = yup.object().shape({
   height: yup.number(),
   session: yup.array().of(yup.string()),
   age: yup.number(),
-  level: yup.string().oneOf(['beginner', 'intermediate', 'advanced', 'professional']),
+  level: yup
+    .string()
+    .oneOf(['beginner', 'intermediate', 'advanced', 'professional']),
   discipline: yup.array().of(yup.string()),
   adminType: yup.string().oneOf(['association', 'gym', 'personal trainer']),
-});
+})

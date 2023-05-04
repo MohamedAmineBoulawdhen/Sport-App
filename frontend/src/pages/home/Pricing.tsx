@@ -1,9 +1,5 @@
 const Pricing = () => {
-    return (
-        <>
-            Pricing
-        </>
-    )
+  return <>Pricing</>
 }
 
 export default Pricing

@@ -1,501 +1,620 @@
 [
-    {
-        "name": "Yoga Class",
-        "description": "A relaxing yoga class for all levels",
-        "startDate": "2023-05-01T08:00:00Z",
-        "completionDate": "2023-05-01T09:00:00Z",
-        "startTime": "8:00 AM",
-        "endTime": "9:00 AM",
-        "location": {
-          "name": "Fitness Studio",
-          "street": "123 Main St",
-          "city": "Anytown",
-          "state": "CA",
-          "zip": "12345"
-        },
-        "coach": "61629a5f5a5b5c5d5e5f5a5b",
-        "admin": "61629a5f5a5b5c5d5e5f5a5c",
-        "athletes": [
-          "61629a5f5a5b5c5d5e5f5a5d",
-          "61629a5f5a5b5c5d5e5f5a5e"
-        ],
-        "notes": "Please bring a yoga mat",
-        "status": "confirmed",
-        "type": "group training"
-      },
-      {
-        "name": "Summer Marathon 2023",
-        "description": "Join us for the annual Summer Marathon event. Runners from around the world gather to compete and push their limits!",
-        "startDate": "2023-07-15",
-        "completionDate": "2023-07-16",
-        "startTime": "08:00",
-        "endTime": "12:00",
-        "location": {
-            "name": "Central Park",
-            "street": "59th St to 110th St",
-            "city": "New York",
-            "state": "NY",
-            "zip": "10022"
-        },
-        "admin": "61734c8838c9e9a59b16d3cb",
-        "notes": "Participants must register online prior to the event.",
-        "status": "confirmed",
-        "type": "event"
+  {
+    "name": "Group Training Session",
+    "description": "This is a group training session",
+    "startDate": "2022-01-01",
+    "completionDate": "2022-01-01",
+    "startTime": "08:00",
+    "endTime": "10:00",
+    "locationName": "Gym",
+    "street": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zip": "12345",
+    "maximumAthletes": 20,
+    "notes": "Bring water and towel",
+    "status": "confirmed",
+    "type": "group training"
+  },
+  {
+    "name": "Personal Training Session",
+    "description": "This is a personal training session",
+    "startDate": "2022-05-15",
+    "completionDate": "2022-05-15",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "locationName": "Home",
+    "street": "456 Oak St",
+    "city": "Smallville",
+    "state": "TX",
+    "zip": "67890",
+    "maximumAthletes": 1,
+    "notes": "Bring workout clothes",
+    "status": "pending",
+    "type": "personal training"
+  },
+  {
+    "name": "Nutrition Plan",
+    "description": "This is a nutrition plan",
+    "startDate": "2022-06-01",
+    "completionDate": "2022-06-30",
+    "startTime": "",
+    "endTime": "",
+    "locationName": "",
+    "street": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+    "maximumAthletes": 10,
+    "athletes": [],
+    "notes": "",
+    "status": "confirmed",
+    "type": "nutrition plan"
+  },
+  {
+    "name": "Competition",
+    "description": "This is a competition",
+    "startDate": "2022-07-10",
+    "completionDate": "2022-07-10",
+    "startTime": "12:00",
+    "endTime": "16:00",
+    "locationName": "Stadium",
+    "street": "789 Maple Ave",
+    "city": "Bigcity",
+    "state": "NY",
+    "zip": "54321",
+    "maximumAthletes": 50,
+    "notes": "Arrive early for warm-up",
+    "status": "completed",
+    "type": "competition"
+  },
+  {
+    "name": "Nutrition Plan for Weight Loss",
+    "description": "A 12-week nutrition plan designed to help you lose weight.",
+    "startDate": "2023-05-01",
+    "completionDate": "2023-07-23",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "locationName": "Online",
+    "street": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+    "maximumAthletes": 1,
+    "notes": "Remember to log all of your meals in the provided food diary.",
+    "status": "confirmed",
+    "type": "nutrition plan"
+  },
+  {
+    "name": "Outdoor Bootcamp",
+    "description": "A 6-week outdoor bootcamp program for all fitness levels.",
+    "startDate": "2023-06-01",
+    "completionDate": "2023-07-15",
+    "startTime": "07:00",
+    "endTime": "08:00",
+    "locationName": "Central Park",
+    "street": "",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10019",
+    "maximumAthletes": 20,
+    "notes": "Please bring your own mat and water bottle.",
+    "status": "confirmed",
+    "type": "group training"
+  },
+  {
+    "name": "One-on-One Training",
+    "description": "A 12-session package of personalized one-on-one training sessions with a certified personal trainer.",
+    "startDate": "2023-05-01",
+    "completionDate": "2023-06-30",
+    "startTime": "15:00",
+    "endTime": "16:00",
+    "locationName": "Gym",
+    "street": "123 Main St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zip": "90001",
+    "maximumAthletes": 1,
+    "notes": "Please bring a towel and wear comfortable workout clothes.",
+    "status": "confirmed",
+    "type": "personal training"
+  },
+  {
+    "name": "Yoga Class",
+    "description": "A relaxing yoga class for all levels",
+    "startDate": "2023-05-01T08:00:00Z",
+    "completionDate": "2023-05-01T09:00:00Z",
+    "startTime": "8:00 AM",
+    "endTime": "9:00 AM",
+    "location": {
+      "name": "Fitness Studio",
+      "street": "123 Main St",
+      "city": "Anytown",
+      "state": "CA",
+      "zip": "12345"
     },
-    {
-        "name": "Summer Body Training",
-        "description": "Get ready for summer with this intense 8-week training plan! Includes personalized workout and nutrition plans tailored to your goals.",
-        "startDate": "2023-05-01",
-        "completionDate": "2023-06-30",
-        "startTime": "09:00",
-        "endTime": "10:30",
-        "location": {
-            "name": "Gym One",
-            "street": "123 Main St",
-            "city": "Los Angeles",
-            "state": "CA",
-            "zip": "90001"
-        },
-        "coaches": "61734c8838c9e9a59b16d3cd",
-        "athletes": [
-            "61734c8838c9e9a59b16d3ce",
-            "61734c8838c9e9a59b16d3cf",
-            "61734c8838c9e9a59b16d3d0"
-        ],
-        "notes": "All participants must complete a fitness assessment prior to starting the program.",
-        "status": "confirmed",
-        "type": "personal training"
+    "coach": "61629a5f5a5b5c5d5e5f5a5b",
+    "admin": "61629a5f5a5b5c5d5e5f5a5c",
+    "athletes": ["61629a5f5a5b5c5d5e5f5a5d", "61629a5f5a5b5c5d5e5f5a5e"],
+    "notes": "Please bring a yoga mat",
+    "status": "confirmed",
+    "type": "group training"
+  },
+  {
+    "name": "Summer Marathon 2023",
+    "description": "Join us for the annual Summer Marathon event. Runners from around the world gather to compete and push their limits!",
+    "startDate": "2023-07-15",
+    "completionDate": "2023-07-16",
+    "startTime": "08:00",
+    "endTime": "12:00",
+    "location": {
+      "name": "Central Park",
+      "street": "59th St to 110th St",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10022"
     },
-    {
-        "name": "Clean Eating Challenge",
-        "description": "Kickstart your healthy eating habits with this 4-week clean eating challenge. Includes customized meal plans and grocery lists.",
-        "startDate": "2023-06-01",
-        "completionDate": "2023-06-30",
-        "location": {
-            "name": "Online",
-            "street": "",
-            "city": "",
-            "state": "",
-            "zip": ""
-        },
-        "coaches": "61734c8838c9e9a59b16d3cd",
-        "athletes": [
-            "61734c8838c9e9a59b16d3ce",
-            "61734c8838c9e9a59b16d3cf",
-            "61734c8838c9e9a59b16d3d0",
-            "61734c8838c9e9a59b16d3d1"
-        ],
-        "notes": "All participants must have access to a kitchen and basic cooking equipment.",
-        "status": "pending",
-        "type": "nutrition plan"
+    "admin": "61734c8838c9e9a59b16d3cb",
+    "notes": "Participants must register online prior to the event.",
+    "status": "confirmed",
+    "type": "event"
+  },
+  {
+    "name": "Summer Body Training",
+    "description": "Get ready for summer with this intense 8-week training plan! Includes personalized workout and nutrition plans tailored to your goals.",
+    "startDate": "2023-05-01",
+    "completionDate": "2023-06-30",
+    "startTime": "09:00",
+    "endTime": "10:30",
+    "location": {
+      "name": "Gym One",
+      "street": "123 Main St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90001"
     },
-    {
-        "name": "Regional Tennis Tournament",
-        "description": "A regional tennis tournament for amateur players",
-        "startDate": "2023-06-01T09:00:00Z",
-        "completionDate": "2023-06-03T18:00:00Z",
-        "startTime": "09:00",
-        "endTime": "18:00",
-        "location": {
-            "name": "Central Tennis Club",
-            "street": "123 Main St",
-            "city": "Anytown",
-            "state": "CA",
-            "zip": "12345"
-        },
-        "admines": "614f9e372128534e15d692d0",
-        "athletes": [],
-        "notes": "",
-        "status": "confirmed",
-        "type": "event"
+    "coaches": "61734c8838c9e9a59b16d3cd",
+    "athletes": [
+      "61734c8838c9e9a59b16d3ce",
+      "61734c8838c9e9a59b16d3cf",
+      "61734c8838c9e9a59b16d3d0"
+    ],
+    "notes": "All participants must complete a fitness assessment prior to starting the program.",
+    "status": "confirmed",
+    "type": "personal training"
+  },
+  {
+    "name": "Clean Eating Challenge",
+    "description": "Kickstart your healthy eating habits with this 4-week clean eating challenge. Includes customized meal plans and grocery lists.",
+    "startDate": "2023-06-01",
+    "completionDate": "2023-06-30",
+    "location": {
+      "name": "Online",
+      "street": "",
+      "city": "",
+      "state": "",
+      "zip": ""
     },
-    {
-        "name": "John's Personal Training Plan",
-        "description": "A personalized training plan for John",
-        "startDate": "2023-05-01T00:00:00Z",
-        "completionDate": "2023-06-01T00:00:00Z",
-        "startTime": "",
-        "endTime": "",
-        "location": {
-            "name": "",
-            "street": "",
-            "city": "",
-            "state": "",
-            "zip": ""
-        },
-        "coaches": "614f9e372128534e15d692d2",
-        "admines": "",
-        "athletes": [
-            "614f9e372128534e15d692d3"
-        ],
-        "notes": "",
-        "status": "confirmed",
-        "type": "personal training"
+    "coaches": "61734c8838c9e9a59b16d3cd",
+    "athletes": [
+      "61734c8838c9e9a59b16d3ce",
+      "61734c8838c9e9a59b16d3cf",
+      "61734c8838c9e9a59b16d3d0",
+      "61734c8838c9e9a59b16d3d1"
+    ],
+    "notes": "All participants must have access to a kitchen and basic cooking equipment.",
+    "status": "pending",
+    "type": "nutrition plan"
+  },
+  {
+    "name": "Regional Tennis Tournament",
+    "description": "A regional tennis tournament for amateur players",
+    "startDate": "2023-06-01T09:00:00Z",
+    "completionDate": "2023-06-03T18:00:00Z",
+    "startTime": "09:00",
+    "endTime": "18:00",
+    "location": {
+      "name": "Central Tennis Club",
+      "street": "123 Main St",
+      "city": "Anytown",
+      "state": "CA",
+      "zip": "12345"
     },
-    {
-        "name": "Mary's Nutrition Plan",
-        "description": "A personalized nutrition plan for Mary",
-        "startDate": "2023-04-01T00:00:00Z",
-        "completionDate": "2023-05-01T00:00:00Z",
-        "startTime": "",
-        "endTime": "",
-        "location": {
-            "name": "",
-            "street": "",
-            "city": "",
-            "state": "",
-            "zip": ""
-        },
-        "coaches": "614f9e372128534e15d692d2",
-        "admines": "",
-        "athletes": [
-            "614f9e372128534e15d692d4"
-        ],
-        "notes": "",
-        "status": "confirmed",
-        "type": "nutrition plan"
+    "admines": "614f9e372128534e15d692d0",
+    "athletes": [],
+    "notes": "",
+    "status": "confirmed",
+    "type": "event"
+  },
+  {
+    "name": "John's Personal Training Plan",
+    "description": "A personalized training plan for John",
+    "startDate": "2023-05-01T00:00:00Z",
+    "completionDate": "2023-06-01T00:00:00Z",
+    "startTime": "",
+    "endTime": "",
+    "location": {
+      "name": "",
+      "street": "",
+      "city": "",
+      "state": "",
+      "zip": ""
     },
-    {
-        "name": "Regional Swimming Competition",
-        "description": "A regional swimming competition for all ages",
-        "startDate": "2023-07-01T09:00:00Z",
-        "completionDate": "2023-07-02T18:00:00Z",
-        "startTime": "09:00",
-        "endTime": "18:00",
-        "location": {
-            "name": "Central Pool",
-            "street": "456 First St",
-            "city": "Anytown",
-            "state": "CA",
-            "zip": "12345"
-        },
-        "admines": "614f9e372128534e15d692d1",
-        "athletes": [],
-        "notes": "",
-        "status": "confirmed",
-        "type": "competition"
+    "coaches": "614f9e372128534e15d692d2",
+    "admines": "",
+    "athletes": ["614f9e372128534e15d692d3"],
+    "notes": "",
+    "status": "confirmed",
+    "type": "personal training"
+  },
+  {
+    "name": "Mary's Nutrition Plan",
+    "description": "A personalized nutrition plan for Mary",
+    "startDate": "2023-04-01T00:00:00Z",
+    "completionDate": "2023-05-01T00:00:00Z",
+    "startTime": "",
+    "endTime": "",
+    "location": {
+      "name": "",
+      "street": "",
+      "city": "",
+      "state": "",
+      "zip": ""
     },
-      
-    {
-        "name": "Personal Training Session",
-        "description": "A one-on-one personal training session",
-        "startDate": "2023-04-24",
-        "completionDate": "2023-04-24",
-        "startTime": "10:00 AM",
-        "endTime": "11:00 AM",
-        "location": {
-            "name": "XYZ Gym",
-            "street": "123 Main St",
-            "city": "New York",
-            "state": "NY",
-            "zip": "10001"
-        },
-        "coaches": "",
-        "athletes": [],
-        "notes": "",
-        "status": "confirmed",
-        "type": "personal training"
-    }, 
-    {
-        "name": "Nutrition Plan",
-        "description": "A personalized nutrition plan",
-        "startDate": "",
-        "completionDate": "",
-        "startTime": "",
-        "endTime": "",
-        "location": {},
-        "coaches": "",
-        "athletes": [],
-        "notes": "",
-        "status": "pending",
-        "type": "nutrition plan"
+    "coaches": "614f9e372128534e15d692d2",
+    "admines": "",
+    "athletes": ["614f9e372128534e15d692d4"],
+    "notes": "",
+    "status": "confirmed",
+    "type": "nutrition plan"
+  },
+  {
+    "name": "Regional Swimming Competition",
+    "description": "A regional swimming competition for all ages",
+    "startDate": "2023-07-01T09:00:00Z",
+    "completionDate": "2023-07-02T18:00:00Z",
+    "startTime": "09:00",
+    "endTime": "18:00",
+    "location": {
+      "name": "Central Pool",
+      "street": "456 First St",
+      "city": "Anytown",
+      "state": "CA",
+      "zip": "12345"
     },
-    {
-        "name": "Group Training Session",
-        "description": "A training session for a group of athletes",
-        "startDate": "2023-05-01",
-        "completionDate": "2023-05-01",
-        "startTime": "2:00 PM",
-        "endTime": "3:00 PM",
-        "location": {
-            "name": "ABC Gym",
-            "street": "456 Elm St",
-            "city": "Los Angeles",
-            "state": "CA",
-            "zip": "90001"
-        },
-        "coaches": "Coach David Lee",
-        "athletes": ["Athlete 1", "Athlete 2", "Athlete 3", "Athlete 4", "Athlete 5"],
-        "notes": "Please bring your own towel and water bottle.",
-        "status": "confirmed",
-        "type": "group training"
-    },
-    {
-        "name": "Open Training Day",
-        "description": "A free training session open to the public",
-        "startDate": "2023-05-14",
-        "completionDate": "2023-05-14",
-        "startTime": "9:00 AM",
-        "endTime": "12:00 PM",
-        "location": {
-            "name": "Central Park",
-            "street": "",
-            "city": "New York",
-            "state": "NY",
-            "zip": "10019"
-        },
-        "coaches": "",
-        "athletes": [],
-        "notes": "Please wear comfortable workout clothes and shoes.",
-        "status": "pending",
-        "type": "event"
-    },
-    {
-        "name": "Summer Games",
-        "description": "Annual summer sports event",
-        "startDate": "2023-07-10T09:00:00Z",
-        "completionDate": "2023-07-18T17:00:00Z",
-        "startTime": "09:00",
-        "endTime": "17:00",
-        "location": {
-            "name": "National Sports Stadium",
-            "street": "123 Main Street",
-            "city": "Springfield",
-            "state": "IL",
-            "zip": "12345"
-        },
-        "coaches": [],
-        "athletes": [],
-        "notes": "Registration starts at 8:00 am on July 10th",
-        "status": "confirmed",
-        "type": "event"
-    },
-    {
-        "name": "Weight Loss Plan",
-        "description": "12-week weight loss plan",
-        "startDate": "2023-05-01T00:00:00Z",
-        "completionDate": "2023-07-23T00:00:00Z",
-        "startTime": null,
-        "endTime": null,
-        "location": null,
-        "coaches": "615aef3cf1c0bb0008f3a291",
-        "athletes": [],
-        "notes": "Weekly check-ins with coach",
-        "status": "confirmed",
-        "type": "nutrition plan"
-    },
-    {
-        "name": "Open House Training",
-        "description": "Free open house training session",
-        "startDate": "2023-04-30T10:00:00Z",
-        "completionDate": "2023-04-30T12:00:00Z",
-        "startTime": "10:00",
-        "endTime": "12:00",
-        "location": {
-            "name": "Fitness First Gym",
-            "street": "456 Park Avenue",
-            "city": "New York",
-            "state": "NY",
-            "zip": "10001"
-        },
-        "coaches": [],
-        "athletes": [],
-        "notes": "Bring your workout clothes and water bottle",
-        "status": "confirmed",
-        "type": "group training"
-    },
-    {
-        "name": "12-Week Strength Training",
-        "description": "12-week strength training plan",
-        "startDate": "2023-06-01",
-        "completionDate": "2023-08-24",
-        "startTime": null,
-        "endTime": null,
-        "location": null,
-        "coaches": "615aef3cf1c0bb0008f3a291",
-        "athletes": [],
-        "notes": "Weekly check-ins with coach",
-        "status": "confirmed",
-        "type": "personal training"
-    },{
-        "name": "Nutrition Plan for Athlete X",
-        "description": "Customized nutrition plan for Athlete X",
-        "startDate": "2023-05-01",
-        "completionDate": "2023-05-31",
-        "startTime": "08:00",
-        "endTime": "09:00",
-        "location": {
-            "name": "Online",
-            "street": "",
-            "city": "",
-            "state": "",
-            "zip": ""
-        },
-        "coaches": "coach_id",
-        "athletes": ["athlete_id"],
-        "notes": "Athlete X has food allergies to nuts",
-        "status": "pending",
-        "type": "nutrition plan"
-    },
-    {
-        "name": "Monday Morning Group Training",
-        "description": "Full body workout for all fitness levels",
-        "startDate": "2023-05-01",
-        "completionDate": "",
-        "startTime": "09:00",
-        "endTime": "10:00",
-        "location": {
-            "name": "Fitness Center",
-            "street": "123 Main St",
-            "city": "Anytown",
-            "state": "CA",
-            "zip": "12345"
-        },
-        "coaches": "coach_id",
-        "athletes": ["athlete_id_1", "athlete_id_2", "athlete_id_3"],
-        "notes": "Please bring a mat and water bottle",
-        "status": "confirmed",
-        "type": "group training"
-    },
-    {
-        "name": "Open House Workout",
-        "description": "Try our gym and meet our trainers",
-        "startDate": "2023-05-01",
-        "completionDate": "",
-        "startTime": "10:00",
-        "endTime": "12:00",
-        "location": {
-            "name": "Fitness Center",
-            "street": "123 Main St",
-            "city": "Anytown",
-            "state": "CA",
-            "zip": "12345"
-        },
-        "coaches": "",
-        "athletes": [],
-        "notes": "No experience necessary, come in comfortable workout clothes",
-        "status": "confirmed",
-        "type": "event"
-    },
-    {
-        "name": "Annual Fitness Challenge",
-        "description": "Compete with athletes from all over the city",
-        "startDate": "2023-06-01",
-        "completionDate": "2023-06-02",
-        "startTime": "08:00",
-        "endTime": "17:00",
-        "location": {
-            "name": "Convention Center",
-            "street": "456 Main St",
-            "city": "Anytown",
-            "state": "CA",
-            "zip": "12345"
-        },
-        "coaches": "",
-        "athletes": ["athlete_id_1", "athlete_id_2", "athlete_id_3"],
-        "notes": "Athletes must provide their own equipment",
-        "status": "confirmed",
-        "type": "competition"
-    },
-    {
-        "name": "Outdoor Group Training",
-        "description": "Join our outdoor group training sessions and get fit while enjoying the fresh air!",
-        "startDate": "2022-05-01",
-        "completionDate": "2022-06-30",
-        "startTime": "06:00",
-        "endTime": "07:00",
-        "location": {
-            "name": "Central Park",
-            "street": "123 Main St",
-            "city": "New York",
-            "state": "NY",
-            "zip": "10001"
-        },
-        "coaches": "61a08b1aa7a1290e223734c7", 
-        "athletes": [], 
-        "notes": "",
-        "status": "confirmed",
-        "type": "group training"
-    },
-    {
-        "name": "Personal Training with John",
-        "description": "Get a customized workout plan tailored to your fitness goals with John, our experienced personal trainer.",
-        "startDate": "2022-05-01",
-        "completionDate": "2022-05-31",
-        "startTime": "10:00",
-        "endTime": "11:00",
-        "location": {
-            "name": "Gym",
-            "street": "456 Elm St",
-            "city": "Los Angeles",
-            "state": "CA",
-            "zip": "90001"
-        },
-        "coaches": "61a08b1aa7a1290e223734c7", 
-        "athletes": ["61a08b1aa7a1290e223734c8"], 
-        "notes": "",
-        "status": "confirmed",
-        "type": "personal training"
-    },
-    {
-        "name": "Personal Training with John",
-        "description": "Get a customized workout plan tailored to your fitness goals with John, our experienced personal trainer.",
-        "startDate": "2022-05-01",
-        "completionDate": "2022-05-31",
-        "startTime": "10:00",
-        "endTime": "11:00",
-        "location": {
-            "name": "Gym",
-            "street": "456 Elm St",
-            "city": "Los Angeles",
-            "state": "CA",
-            "zip": "90001"
-        },
-        "coaches": "61a08b1aa7a1290e223734c7", 
-        "athletes": ["61a08b1aa7a1290e223734c8"], 
-        "notes": "",
-        "status": "confirmed",
-        "type": "personal training"
-    },
-    {
-        "name": "30-Day Nutrition Plan",
-        "description": "Improve your diet and achieve your fitness goals with our 30-day nutrition plan, designed by our expert nutritionist.",
-        "startDate": "2022-05-01",
-        "completionDate": "2022-05-31",
-        "startTime": "",
-        "endTime": "",
-        "location": {
-            "name": "",
-            "street": "",
-            "city": "",
-            "state": "",
-            "zip": ""
-        },
-        "coaches": "61a08b1aa7a1290e223734c7",
-        "athletes": ["61a08b1aa7a1290e223734c8"], 
-        "notes": "",
-        "status": "confirmed",
-        "type": "nutrition plan"
-    },
-    {
-        "name": "Annual Tennis Championship",
-        "description": "Join our annual tennis championship and compete with other tennis players to win exciting prizes!",
-        "startDate": "2022-08-01",
-        "completionDate": "2022-08-07",
-        "startTime": "09:00",
-        "endTime": "18:00",
-        "location": {
-            "name": "Tennis Club",
-            "street": "789 Oak St",
-            "city": "Chicago",
-            "state": "IL",
-            "zip": "60601"
-        },
-        "coaches": "", 
-        "athletes": [],
-        "notes": "",
-        "status": "pending",
-        "type": "competition"
-    }
+    "admines": "614f9e372128534e15d692d1",
+    "athletes": [],
+    "notes": "",
+    "status": "confirmed",
+    "type": "competition"
+  },
 
+  {
+    "name": "Personal Training Session",
+    "description": "A one-on-one personal training session",
+    "startDate": "2023-04-24",
+    "completionDate": "2023-04-24",
+    "startTime": "10:00 AM",
+    "endTime": "11:00 AM",
+    "location": {
+      "name": "XYZ Gym",
+      "street": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10001"
+    },
+    "coaches": "",
+    "athletes": [],
+    "notes": "",
+    "status": "confirmed",
+    "type": "personal training"
+  },
+  {
+    "name": "Nutrition Plan",
+    "description": "A personalized nutrition plan",
+    "startDate": "",
+    "completionDate": "",
+    "startTime": "",
+    "endTime": "",
+    "location": {},
+    "coaches": "",
+    "athletes": [],
+    "notes": "",
+    "status": "pending",
+    "type": "nutrition plan"
+  },
+  {
+    "name": "Group Training Session",
+    "description": "A training session for a group of athletes",
+    "startDate": "2023-05-01",
+    "completionDate": "2023-05-01",
+    "startTime": "2:00 PM",
+    "endTime": "3:00 PM",
+    "location": {
+      "name": "ABC Gym",
+      "street": "456 Elm St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90001"
+    },
+    "coaches": "Coach David Lee",
+    "athletes": [
+      "Athlete 1",
+      "Athlete 2",
+      "Athlete 3",
+      "Athlete 4",
+      "Athlete 5"
+    ],
+    "notes": "Please bring your own towel and water bottle.",
+    "status": "confirmed",
+    "type": "group training"
+  },
+  {
+    "name": "Open Training Day",
+    "description": "A free training session open to the public",
+    "startDate": "2023-05-14",
+    "completionDate": "2023-05-14",
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
+    "location": {
+      "name": "Central Park",
+      "street": "",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10019"
+    },
+    "coaches": "",
+    "athletes": [],
+    "notes": "Please wear comfortable workout clothes and shoes.",
+    "status": "pending",
+    "type": "event"
+  },
+  {
+    "name": "Summer Games",
+    "description": "Annual summer sports event",
+    "startDate": "2023-07-10T09:00:00Z",
+    "completionDate": "2023-07-18T17:00:00Z",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "location": {
+      "name": "National Sports Stadium",
+      "street": "123 Main Street",
+      "city": "Springfield",
+      "state": "IL",
+      "zip": "12345"
+    },
+    "coaches": [],
+    "athletes": [],
+    "notes": "Registration starts at 8:00 am on July 10th",
+    "status": "confirmed",
+    "type": "event"
+  },
+  {
+    "name": "Weight Loss Plan",
+    "description": "12-week weight loss plan",
+    "startDate": "2023-05-01T00:00:00Z",
+    "completionDate": "2023-07-23T00:00:00Z",
+    "startTime": null,
+    "endTime": null,
+    "location": null,
+    "coaches": "615aef3cf1c0bb0008f3a291",
+    "athletes": [],
+    "notes": "Weekly check-ins with coach",
+    "status": "confirmed",
+    "type": "nutrition plan"
+  },
+  {
+    "name": "Open House Training",
+    "description": "Free open house training session",
+    "startDate": "2023-04-30T10:00:00Z",
+    "completionDate": "2023-04-30T12:00:00Z",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "location": {
+      "name": "Fitness First Gym",
+      "street": "456 Park Avenue",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10001"
+    },
+    "coaches": [],
+    "athletes": [],
+    "notes": "Bring your workout clothes and water bottle",
+    "status": "confirmed",
+    "type": "group training"
+  },
+  {
+    "name": "12-Week Strength Training",
+    "description": "12-week strength training plan",
+    "startDate": "2023-06-01",
+    "completionDate": "2023-08-24",
+    "startTime": null,
+    "endTime": null,
+    "location": null,
+    "coaches": "615aef3cf1c0bb0008f3a291",
+    "athletes": [],
+    "notes": "Weekly check-ins with coach",
+    "status": "confirmed",
+    "type": "personal training"
+  },
+  {
+    "name": "Nutrition Plan for Athlete X",
+    "description": "Customized nutrition plan for Athlete X",
+    "startDate": "2023-05-01",
+    "completionDate": "2023-05-31",
+    "startTime": "08:00",
+    "endTime": "09:00",
+    "location": {
+      "name": "Online",
+      "street": "",
+      "city": "",
+      "state": "",
+      "zip": ""
+    },
+    "coaches": "coach_id",
+    "athletes": ["athlete_id"],
+    "notes": "Athlete X has food allergies to nuts",
+    "status": "pending",
+    "type": "nutrition plan"
+  },
+  {
+    "name": "Monday Morning Group Training",
+    "description": "Full body workout for all fitness levels",
+    "startDate": "2023-05-01",
+    "completionDate": "",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "location": {
+      "name": "Fitness Center",
+      "street": "123 Main St",
+      "city": "Anytown",
+      "state": "CA",
+      "zip": "12345"
+    },
+    "coaches": "coach_id",
+    "athletes": ["athlete_id_1", "athlete_id_2", "athlete_id_3"],
+    "notes": "Please bring a mat and water bottle",
+    "status": "confirmed",
+    "type": "group training"
+  },
+  {
+    "name": "Open House Workout",
+    "description": "Try our gym and meet our trainers",
+    "startDate": "2023-05-01",
+    "completionDate": "",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "location": {
+      "name": "Fitness Center",
+      "street": "123 Main St",
+      "city": "Anytown",
+      "state": "CA",
+      "zip": "12345"
+    },
+    "coaches": "",
+    "athletes": [],
+    "notes": "No experience necessary, come in comfortable workout clothes",
+    "status": "confirmed",
+    "type": "event"
+  },
+  {
+    "name": "Annual Fitness Challenge",
+    "description": "Compete with athletes from all over the city",
+    "startDate": "2023-06-01",
+    "completionDate": "2023-06-02",
+    "startTime": "08:00",
+    "endTime": "17:00",
+    "location": {
+      "name": "Convention Center",
+      "street": "456 Main St",
+      "city": "Anytown",
+      "state": "CA",
+      "zip": "12345"
+    },
+    "coaches": "",
+    "athletes": ["athlete_id_1", "athlete_id_2", "athlete_id_3"],
+    "notes": "Athletes must provide their own equipment",
+    "status": "confirmed",
+    "type": "competition"
+  },
+  {
+    "name": "Outdoor Group Training",
+    "description": "Join our outdoor group training sessions and get fit while enjoying the fresh air!",
+    "startDate": "2022-05-01",
+    "completionDate": "2022-06-30",
+    "startTime": "06:00",
+    "endTime": "07:00",
+    "location": {
+      "name": "Central Park",
+      "street": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10001"
+    },
+    "coaches": "61a08b1aa7a1290e223734c7",
+    "athletes": [],
+    "notes": "",
+    "status": "confirmed",
+    "type": "group training"
+  },
+  {
+    "name": "Personal Training with John",
+    "description": "Get a customized workout plan tailored to your fitness goals with John, our experienced personal trainer.",
+    "startDate": "2022-05-01",
+    "completionDate": "2022-05-31",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "location": {
+      "name": "Gym",
+      "street": "456 Elm St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90001"
+    },
+    "coaches": "61a08b1aa7a1290e223734c7",
+    "athletes": ["61a08b1aa7a1290e223734c8"],
+    "notes": "",
+    "status": "confirmed",
+    "type": "personal training"
+  },
+  {
+    "name": "Personal Training with John",
+    "description": "Get a customized workout plan tailored to your fitness goals with John, our experienced personal trainer.",
+    "startDate": "2022-05-01",
+    "completionDate": "2022-05-31",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "location": {
+      "name": "Gym",
+      "street": "456 Elm St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90001"
+    },
+    "coaches": "61a08b1aa7a1290e223734c7",
+    "athletes": ["61a08b1aa7a1290e223734c8"],
+    "notes": "",
+    "status": "confirmed",
+    "type": "personal training"
+  },
+  {
+    "name": "30-Day Nutrition Plan",
+    "description": "Improve your diet and achieve your fitness goals with our 30-day nutrition plan, designed by our expert nutritionist.",
+    "startDate": "2022-05-01",
+    "completionDate": "2022-05-31",
+    "startTime": "",
+    "endTime": "",
+    "location": {
+      "name": "",
+      "street": "",
+      "city": "",
+      "state": "",
+      "zip": ""
+    },
+    "coaches": "61a08b1aa7a1290e223734c7",
+    "athletes": ["61a08b1aa7a1290e223734c8"],
+    "notes": "",
+    "status": "confirmed",
+    "type": "nutrition plan"
+  },
+  {
+    "name": "Annual Tennis Championship",
+    "description": "Join our annual tennis championship and compete with other tennis players to win exciting prizes!",
+    "startDate": "2022-08-01",
+    "completionDate": "2022-08-07",
+    "startTime": "09:00",
+    "endTime": "18:00",
+    "location": {
+      "name": "Tennis Club",
+      "street": "789 Oak St",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60601"
+    },
+    "coaches": "",
+    "athletes": [],
+    "notes": "",
+    "status": "pending",
+    "type": "competition"
+  }
 ]

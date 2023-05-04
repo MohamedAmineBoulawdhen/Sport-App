@@ -1,9 +1,5 @@
 const Nutrition = () => {
-    return (
-        <>
-            Nutrition
-        </>
-    )
+  return <>Nutrition</>
 }
 
 export default Nutrition

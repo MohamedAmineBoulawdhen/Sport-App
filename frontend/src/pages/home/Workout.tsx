@@ -1,9 +1,5 @@
 const Workout = () => {
-    return (
-        <>
-            Workout
-        </>
-    )
+  return <>Workout</>
 }
 
 export default Workout
